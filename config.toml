@@ -21,6 +21,9 @@ generate_tags_pages = true
 generate_categories_pages = true
 
 [extra]
+# even configs
+even_title = "pg999w's blog"
+
 # hyde configs
 hyde_links = [
     {url = "https://google.com", name = "Google.com"},
