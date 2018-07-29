@@ -4,3 +4,6 @@
 [submodule "themes/feather"]
 	path = themes/feather
 	url = https://github.com/piedoom/feather.git
+[submodule "themes/even"]
+	path = themes/even
+	url = https://github.com/Keats/even
