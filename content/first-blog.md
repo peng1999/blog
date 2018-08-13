@@ -2,6 +2,7 @@
 title = "First bolg"
 template = "page.html" 
 date = 2018-07-18T12:00:00+08:00
+category = "meta"
 +++
 
 除去第一个 [Hello World](./hello.md) 页面，这是第一篇文章。<!-- more -->

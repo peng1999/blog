@@ -2,7 +2,6 @@
 title = "About"
 template = "page.html" 
 date = 2018-07-29
-tags = ["meta"]
 category = "meta"
 +++
 
