@@ -5,6 +5,8 @@ date = 2018-08-13
 category = "journey"
 +++
 
+![pgw_5984-pano](https://user-images.githubusercontent.com/12483662/44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg)
+
 ## 壹 亚丁村
 
 前往稻城亚丁风景区的旅程几乎具有一种朝圣般的痛苦。从成都出发，我们先乘坐了两天的长途汽车，到达稻城县<!-- more -->
