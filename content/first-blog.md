@@ -7,7 +7,7 @@ category = "meta"
 
 除去第一个 [Hello World](./hello.md) 页面，这是第一篇文章。<!-- more -->
 
-写这个博客，还是因为我觉得应该时常写一点文章，兴许也能给互联网提供一些有用的资料。
+我时常觉得应该写一点文章，但是由于时间不够，加上我的拖延症，直到高考完闲得慌的时候才搭建了这个静态博客。希望能写一些有用的文章，也能给互联网提供一些资料。
 这个博客由 [Gutenberg](https://www.getgutenberg.io/) 驱动。
 
 ## 阶段
@@ -16,7 +16,7 @@ category = "meta"
 
 1. Netlify
 
-   2018年7月至今。该博客只在 <https://fervent-rosalind-6ed4d2.netlify.com/> 上可见。应该也不会被搜索引擎索引到。我可以进行随意折腾。
+   2018年7月至今。该博客只在 <https://fervent-rosalind-6ed4d2.netlify.com/> 上可见。应该不会被搜索引擎索引到。我可以进行随意折腾。
 
 2. Github Pages
 
