@@ -2,7 +2,8 @@
 title = "稻城游记"
 template = "page.html" 
 date = 2018-08-13
-category = "journey"
+[taxonomies]
+tags = ["journey"]
 +++
 
 ![pgw_5984-pano](https://user-images.githubusercontent.com/12483662/44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg)

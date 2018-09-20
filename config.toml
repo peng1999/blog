@@ -17,17 +17,22 @@ build_search_index = true
 
 theme = "even"
 
-generate_tags_pages = true
-generate_categories_pages = true
+# generate_tags_pages = true
+# generate_categories_pages = true
 
 taxonomies = [
-    {name = "categories", rss = true},
     {name = "tags", rss = true},
 ]
 
 [extra]
 # even configs
 even_title = "pg999w's blog"
+
+even_menu = [
+    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/tags", name = "Tags"},
+    {url = "$BASE_URL/about", name = "About"},
+]
 
 # hyde configs
 hyde_links = [
