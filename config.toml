@@ -20,6 +20,11 @@ theme = "even"
 generate_tags_pages = true
 generate_categories_pages = true
 
+taxonomies = [
+    {name = "categories", rss = true},
+    {name = "tags", rss = true},
+]
+
 [extra]
 # even configs
 even_title = "pg999w's blog"
