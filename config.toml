@@ -3,7 +3,7 @@ title = "pg999w"
 description = "pg999w's blog"
 
 # The URL the site will be built for
-base_url = "https://fervent-rosalind-6ed4d2.netlify.com/"
+base_url = "https://peng1999.github.io/blog/"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
