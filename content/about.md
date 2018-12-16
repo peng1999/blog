@@ -6,7 +6,7 @@ date = 2018-07-29
 tags = ["meta"]
 +++
 
-I'm a CS undergraduate student of [NPU](www.nwpu.edu.cn).
+I'm a CS undergraduate student of [NPU](http://www.nwpu.edu.cn).
 <!-- more -->
 
 ## Github
