@@ -17,8 +17,8 @@ tags = ["meta"]
 
 1. Netlify
 
-   2018年7月至今。该博客只在 <https://fervent-rosalind-6ed4d2.netlify.com/> 上可见。应该不会被搜索引擎索引到。我可以进行随意折腾。
+   2018年7月至11月。该博客只在 <https://fervent-rosalind-6ed4d2.netlify.com/> 上可见。应该不会被搜索引擎索引到。我可以进行随意折腾。
 
 2. Github Pages
 
-   尚未实现。当博客稳定运行之后，我将利用 Travis CI 自动化上传至 Github Pages 的流程，将博客发布到 Github Pages 上面。此时可以让搜索引擎索引该博客了。
+   2018年12月至今。我写了第一篇质量达到一定标准的文章并打算发布，于是我完成了利用 Travis CI 自动化上传至 Github Pages 的流程，将博客发布到 Github Pages 上面。此时可以让搜索引擎索引该博客了。

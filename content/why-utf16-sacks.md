@@ -1,5 +1,5 @@
 +++
-title = "为什么在编程语言应该默认使用UTF-8而不是UTF-16"
+title = "为什么编程语言总是应该使用UTF-8而不是UTF-16"
 template = "page.html" 
 date = 2018-12-15
 [taxonomies]
@@ -16,7 +16,7 @@ tags = ["programming"]
 使文章<s>简短</s>，易懂。但我不是字符编码方面的专家，难免有遗漏错误之处，请见谅。
 
 # Unicode 编码基本概念
-![层次结构](../unicode.png)
+![层次结构](../unicode.svg)
 
 ## 编码单元 ([Code Unit](http://www.unicode.org/glossary/#code_unit))
 可以表示一段已编码文本的最小比特组合。例如，UTF-8、UTF-16 和 UTF-32 分
