@@ -1,6 +1,3 @@
-[submodule "themes/hyde"]
-	path = themes/hyde
-	url = https://github.com/Keats/hyde.git
 [submodule "themes/feather"]
 	path = themes/feather
 	url = https://github.com/piedoom/feather.git
