@@ -2,23 +2,14 @@ title = "pg999w"
 
 description = "pg999w's blog"
 
-# The URL the site will be built for
+# document is in https://www.getzola.org/documentation/getting-started/configuration/
 base_url = "https://peng1999.github.io/blog/"
-
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
-
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Gutenberg
 highlight_code = true
-
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
+generate_rss = true
 
 theme = "even"
-
-# generate_tags_pages = true
-# generate_categories_pages = true
 
 taxonomies = [
     {name = "tags", rss = true},
@@ -30,6 +21,7 @@ even_title = "pg999w's blog"
 
 even_menu = [
     {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL/rss.xml", name = "RSS"},
     {url = "$BASE_URL/tags", name = "Tags"},
     {url = "$BASE_URL/about", name = "About"},
 ]
