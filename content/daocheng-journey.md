@@ -6,7 +6,10 @@ date = 2018-08-13
 tags = ["journey"]
 +++
 
-![pgw_5984-pano](https://user-images.githubusercontent.com/12483662/44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg)
+<figure style="margin:0">
+<img alt="Photo of Yading" src="https://user-images.githubusercontent.com/12483662/44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg">
+<figcaption>摄于2018年8月10日</figcaption>
+</figure>
 
 ## 零 游记
 
