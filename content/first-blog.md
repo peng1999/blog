@@ -22,3 +22,7 @@ Gutenberg 已经被重命名为 [Zola](https://www.getzola.org)。
 2. 2018年12月
 
    我写了第一篇具有一定质量的文章并打算发布，并实现了 Travis CI 自动化 Github Pages 部署。留言、RSS 等基础功能也基本到位。
+
+3. 2018年12月18日
+
+    这个博客可以在谷歌上搜索到了。
