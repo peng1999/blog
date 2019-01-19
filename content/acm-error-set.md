@@ -11,6 +11,14 @@ tags = ["acm"]
 
 ### 1. [Codeforces Round #510 (Div. 2) Problem B](http://codeforces.com/contest/1042/problem/B)
 
-> 样例错误
+> ⚠ 样例错误
 
 把位操作`&`和`|`弄反。
+
+### 2. [PAT (Advanced Level) Practice 1001](https://pintia.cn/problem-sets/994805342720868352/problems/994805528788582400)
+
+数字 1000 写成 100。
+
+### 3. [PAT (Advanced Level) Practice 1002](https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000)
+
+没有注意到题中 non-zero 的条件。
