@@ -14,8 +14,9 @@ tags = ["programming", "rust"]
 
 在 Rust 中，[整数](https://doc.rust-lang.org/reference/tokens.html#number-literals)默认是十进制，
 以`0x`开头的数字为十六进制，以`0b`开头的数字为二进制。例如，我们可以将 FF7A34B3<sub>16</sub> 写作
-`0xFF7A34B3`，或是`0xff7a34b3`；将 01111101<sub>2</sub> 写作`0b0111_1101`。注意下划线可以在
-任意两个数位间插入，编译器将忽略它们。
+`0xFF7A34B3`，或是`0xff7a34b3`；将 01111101<sub>2</sub> 写作`0b01111101`。下划线可以在
+任意两个数位间插入，编译器将忽略它们。所以`0b0111_1101`和`0b01111101`是等价的。注意 C 语言标准
+并没有包含二进制字面量，但较新的主流语言[^newer-lang]几乎都支持这个特性。
 
 {{hashtag(tag = "CSAPP:2.1.2")}}
 
@@ -36,8 +37,8 @@ Rust 支持多种数值数据格式。它们的字节大小可以用 `std::mem::
 
 ``` rust
 fn show_bytes<T>(data: &T) {
-    let size = std::mem::size_of::<&T>();
-    let repr = data as *const T as *const u8;
+    let size = std::mem::size_of::<&T>();       // T 的字节个数
+    let repr = data as *const T as *const u8;   // 获得指向 data 第一个字节的指针
     for i in 0 .. size {
         unsafe {
             print!("{:02x} ", *repr.offset(i as isize));
@@ -59,3 +60,7 @@ fn main() {
 在一台 64 位的机器上，程序运行的结果类似于`ec 29 bd 50 fd 7f 00 00 `，
 说明该机器采用小端存储方式。
 
+---
+## Footnotes
+[^newer-lang]:
+如 C++ 14，C# 7.0，Java SE 7，Python 2.6，ECMAScript 6（2015 年的 JavaScript 标准） 等。
