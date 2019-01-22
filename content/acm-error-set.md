@@ -22,3 +22,7 @@ tags = ["acm"]
 ### 3. [PAT (Advanced Level) Practice 1002](https://pintia.cn/problem-sets/994805342720868352/problems/994805526272000000)
 
 没有注意到题中 non-zero 的条件。
+
+### 4. [PAT (Advanced Level) Practice 1003](https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376)
+
+忘记小顶堆应该使用 `priority_queue<T, vector<T>, greater<>>`。
