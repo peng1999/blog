@@ -1,13 +1,11 @@
 +++
-title = "编译器优化 - CSARPP"
+title = "Rust 的空指针优化"
 date = 2019-01-19
 [taxonomies]
 tags = ["programming", "rust"]
 +++
 
 # 程序的机器级表示
-
-{{hashtag(tag = "CSAPP:3")}}
 
 采用下面这条指令可以查看 Rust 编译器生成的汇编代码：
 
@@ -19,12 +17,7 @@ rustc filename.rs --crate-type=lib --emit=asm -C opt-level=2
 `opt-level` 设置编译级别。由于 Rust 具有较多的抽象层，至少要开级别 2 的优化，
 编译器才会将诸如 `into_iter` 这样的函数调用优化掉，我们才能看到比较清晰的汇编代码。
 
-# 编译器优化
-
-{{hashtag(tag = "CSAPP:5")}}
-
-## 优化的阻碍
-### 指针别名
+# 指针别名
 
 在 Rust 中，一个可变的引用（`&mut T`）不会存在别名。这使得 Rust 编译器可以告诉 LLVM 后端
 某个指针不存在别名（noalias）。这可以开启一些 C 语言中不可行的优化。例如下面的代码：
@@ -58,7 +51,7 @@ pub fn add2(a: &mut i64, b: &mut i64) {
 `add2(a, b)` 使 `c` 变为 \\(2x\\)，那么这个优化就不成立了。但是 Rust 可以保证
 可变引用是独占的，即 `a != b`，所以 Rust 可以做这种优化。[^noalias]
 
-## 不必要的内存引用
+# 不必要的内存引用
 
 对于 CPU 而言，访问内存显然比访问寄存器更慢。考虑下面的 C 语言循环：
 
