@@ -41,6 +41,20 @@ bibstyle=trad-plain]{biblatex}
 \end{filecontents}
 \addbibresource[location=local]{refs.bib}
 
+\usepackage{fancyvrb}
+% 显示一个列子，并把对应的代码保存下来
+\newenvironment{exampleshow}[1]
+{\makeatletter
+  \def\filename@es{\jobname-#1.aux}
+  \typeout{Writing file \filename@es}
+  \VerbatimOut{\filename@es}}
+{\endVerbatimOut
+  \input{\filename@es}
+  \makeatother}
+
+% 显示对应例子的代码
+\newcommand{\examplecode}[1]{\VerbatimInput{\jobname-#1.aux}}
+
 \usepackage{enumitem}
 \setlist[enumerate]{font=\bfseries}
 
@@ -83,15 +97,15 @@ Web 技术上数学公式排版的事实标准。但 \LaTeX 的学习曲线陡�
 \verb|\DeclareMathOperator{\dif}{d\!}|
 来使用这个命令。
 
-本文没有在文章中列出自身的源代码，建议读者先阅读编译后的
-PDF，并亲自将下面的公式用
-\LaTeX 写一遍，再直接对照文章的源代码，这样你必能对各种
-数学命令建立更深的理解。
-
 \end{abstract}
 
 \begin{enumerate}[label=Challenge \arabic*]
-\item\label{i:textmathrm} \(n^\textrm{th}\) root
+\item\label{i:textmathrm}
+  \begin{exampleshow}{nthroot}
+    \(n^\textrm{th}\) root
+  \end{exampleshow}
+
+  \examplecode{nthroot}
 
   \cmd{textrm}命令与 \cmd{mathrm}命令都可以在数学模式
   显示直的罗马体“th”。在本例中效果也是一样的。但根
@@ -101,8 +115,13 @@ PDF，并亲自将下面的公式用
   \index{\cmd{textrm}}
 
 \item
-  \(\mathbf{S}^{-1}\mathbf{TS}=\mathbf{dg}(\omega_1,\dots,\omega_n)=\boldsymbol\Lambda\)
-  \nopagebreak[4]
+  \begin{exampleshow}{sts}
+    \(\mathbf{S}^{-1}\mathbf{TS}=
+    \mathbf{dg}(\omega_1,\dots,\omega_n)=\boldsymbol\Lambda\)
+  \end{exampleshow}
+
+  \examplecode{sts}
+
   与 \ref{i:textmathrm} 类似，本题中\(\mathbf{S}\)是粗体数学符号，所以
   采用 \cmd{mathbf}而不是 \cmd{textbf}。
 
@@ -123,7 +142,12 @@ PDF，并亲自将下面的公式用
 
   \index{\cmd{dots}}
 
-\item \(\Pr(m=n\mid m+n=3)\)
+\item
+  \begin{exampleshow}{pr}
+    \(\Pr(m=n\mid m+n=3)\)
+  \end{exampleshow}
+
+  \examplecode{pr}
 
   \cmd{mid}与\texttt{|}、\cmd{lvert}、\cmd{rvert}都是显示为\(|\)的同一
   个字符。不同的是它们的语义不同，如 \cmd{mid}是一个关系符，
@@ -136,14 +160,24 @@ PDF，并亲自将下面的公式用
 
   \citetitle{TeXbook}认为这个式子可以与集合记号类比，在括号两侧添加窄空
   格。但我认为\(\Pr\)还是应该被认为是一个函数，所以使用默认的空白方案。
-  
-\item \(\sin18^\circ=\frac14 (\sqrt5-1)\)
+
+\item
+  \begin{exampleshow}{sin18}
+    \(\sin18^\circ=\frac14 (\sqrt5-1)\)
+  \end{exampleshow}
+
+  \examplecode{sin18}
 
   \cmd{frac}的参数如果只有一个字符，可以直接省略大括号，以增加可读性。
 
   \index{\cmd{circ}}
-  
-\item \(k=1.38\times10^{-16}\,\textrm{erg}/^\circ\textrm K\)
+
+\item
+  \begin{exampleshow}{k}
+    \(k=1.38\times10^{-16}\,\textrm{erg}/^\circ\textrm K\)
+  \end{exampleshow}
+
+  \examplecode{k}
 
   单位\(\textrm{erg}/^\circ\textrm{K}\)与数字之间应该有一个窄空
   格\cmd{,}。
@@ -151,10 +185,19 @@ PDF，并亲自将下面的公式用
   \index{\cmd{,}}
 
 \item
-  \(\bar\Phi\subset NL_1^*/N=\bar L_1^*\subseteq\dots\subseteq
-  NL_n^*/N=\bar L_n^*\)
+  \begin{exampleshow}{phiinnl}
+    \(\bar\Phi\subset NL_1^*/N=
+    \bar L_1^*\subseteq\dots\subseteq NL_n^*/N=\bar L_n^*\)
+  \end{exampleshow}
 
-\item \(I(\lambda)=\iint_Dg(x,y)e^{i\lambda h(x,y)}\dif x\dif y\)
+  \examplecode{phiinnl}
+
+\item
+  \begin{exampleshow}{ilambda}
+    \(I(\lambda)=\iint_Dg(x,y)e^{i\lambda h(x,y)}\dif x\dif y\)
+  \end{exampleshow}
+
+  \examplecode{ilambda}
 
   在 \citetitle{TeXbook}中微分符号都是写作斜体的\(dx\)，但根
   据\citeauthor{ISO80000-2}，应该采用竖直的罗马体。所以使
@@ -162,17 +205,26 @@ PDF，并亲自将下面的公式用
 
   \index{\cmd{dif}}
 
-\item \(\int_0^1\dotsi\int_0^1f(x_1,\dots,x_n)\dif x_1\dots\dif x_n\)
+\item
+  \begin{exampleshow}{intdotsint}
+    \(\int_0^1\dotsi\int_0^1f(x_1,\dots,x_n)\dif x_1\dots\dif x_n\)
+  \end{exampleshow}
+
+  \examplecode{intdotsint}
 
   \citetitle{TeXbook}认为应该在第一个积分符号后面插入一个负空
   格 \cmd{!}。 但我认为没有合适的排版上的理由这要做。
-  
+
 \item
-  \[x_{2m}\equiv\begin{cases}
-      Q(X_m^2-P_2W_m^2)-2S^2&(m\textrm{ odd})\\
-      P_2^2(X_m^2-P_2W_m^2)-2S^2&(m\textrm{ even})
-    \end{cases}\pmod N
-  \]
+  \begin{exampleshow}{x2m}
+    \[x_{2m}\equiv\begin{cases}
+        Q(X_m^2-P_2W_m^2)-2S^2&(m\textrm{ odd})\\
+        P_2^2(X_m^2-P_2W_m^2)-2S^2&(m\textrm{ even})
+      \end{cases}\pmod N
+    \]
+  \end{exampleshow}
+
+  \examplecode{x2m}
 
   两行公式略显拥挤。如果采用 \texttt{mathtools}宏包的
   \cmd{dcases}将会取得更好的结果。
@@ -180,9 +232,13 @@ PDF，并亲自将下面的公式用
   \index{\cmd{pmod}}
 
 \item
-  \[(1+x_1z+x_1^2z^2+\dotsb)\dots(1+x_nz+x_n^2z^2+\dotsb)=
-    \frac1{(1-x_1z)\dots(1-x_nz)}
-  \]
+  \begin{exampleshow}{1x1z}
+    \[(1+x_1z+x_1^2z^2+\dotsb)\dots(1+x_nz+x_n^2z^2+\dotsb)=
+      \frac1{(1-x_1z)\dots(1-x_nz)}
+    \]
+  \end{exampleshow}
+
+  \examplecode{1x1z}
 
   \cmd{dots}自动判断在这个例子中不起作用，所以需要语义化的版本
   \cmd{dotsb}。
@@ -192,11 +248,15 @@ PDF，并亲自将下面的公式用
   \citetitle{TeXbook}在两处“\(+\dotsb\)”后面都增加了窄空格。
 
 \item
-  \[\prod_{j\ge0}\biggl(\sum_{k\ge0}a_{jk}z^k\biggr)=
-    \sum_{n\ge0}z^n\Biggl(\sum_{\substack{
-        k_0,k_1,\dotsc\ge0\\
-        k_0+k_1+\dots=n}} a_{0k_0}a_{1k_1}\dots\Biggr)
-  \]
+  \begin{exampleshow}{pi}
+    \[\prod_{j\ge0}\biggl(\sum_{k\ge0}a_{jk}z^k\biggr)=
+      \sum_{n\ge0}z^n\Biggl(\sum_{\substack{
+          k_0,k_1,\dotsc\ge0\\
+          k_0+k_1+\dots=n}} a_{0k_0}a_{1k_1}\dots\Biggr)
+    \]
+  \end{exampleshow}
+
+  \examplecode{pi}
 
   如果采用 \cmd{left}和 \cmd{right}自动调整括号高度，会设置
   为括号内部整个公式的高度，效果不令人满意。于是使用 \cmd{Biggl}
@@ -207,21 +267,30 @@ PDF，并亲自将下面的公式用
 
   \citetitle{TeXbook}在\(z^n\)后面增加了窄空格。
 \item
-  \[\frac{(n_1+n_2+\dots+n_m)!}{n_1!\,n_2!\dots
-      n_m!}=\binom{n_1+n_2}{n_2}\binom{n_1+n_2+n_3}{n_3}\dots\binom{n_1+n_2+\dots+n_m}{n_m}
-  \]
+  \begin{exampleshow}{fracn1}
+    \[\frac{(n_1+n_2+\dots+n_m)!}{n_1!\,n_2!\dots n_m!}=
+      \binom{n_1+n_2}{n_2}\binom{n_1+n_2+n_3}{n_3}\dots
+      \binom{n_1+n_2+\dots+n_m}{n_m}
+    \]
+  \end{exampleshow}
+
+  \examplecode{fracn1}
 
   \LaTeX 不能很好的计算后缀运算符周围的空白，所以我们需要在
-  \(n_2\)前面插入一个窄空格。
+  \(n_2!\)前面插入一个窄空格。
 
 \item
-  \[\Pi_R\genfrac[]{0pt}{}
+  \begin{exampleshow}{pir}
+    \[\Pi_R\genfrac[]{0pt}{}
       {a_1,a_2,\dots,a_M}
       {b_1,b_2,\dots,b_N}
-    =\prod_{n=0}^R\frac{
-      (1-q^{a_1+n})(1-q^{a_2+n})\dots(1-q^{a_M+n})}{
-      (1-q^{b_1+n})(1-q^{b_2+n})\dots(1-q^{b_N+n})}
-  \]
+      =\prod_{n=0}^R\frac{
+        (1-q^{a_1+n})(1-q^{a_2+n})\dots(1-q^{a_M+n})}{
+        (1-q^{b_1+n})(1-q^{b_2+n})\dots(1-q^{b_N+n})}
+    \]
+  \end{exampleshow}
+
+  \examplecode{pir}
 
   使用 \cmd{genfrac} 可以生成向分数一样上下排列的两个公式，
   将第三个参数设置为零就可以取消掉中间的横线。
@@ -229,42 +298,58 @@ PDF，并亲自将下面的公式用
   \index{\cmd{genfrac}}
 
 \item
-  \[\sum_{p\textrm{ prime}}f(p)=\int_{t>1}f(t)\dif\pi(t)\]
+  \begin{exampleshow}{sigmap}
+    \[\sum_{p\textrm{ prime}}f(p)=\int_{t>1}f(t)\dif\pi(t)\]
+  \end{exampleshow}
+
+  \examplecode{sigmap}
 
 \item
-  \[\{\underbrace{\overbrace{\mathstrut a,\dots,a}^{k\;a\textrm{'s}},
-      \overbrace{\mathstrut b,\dots,b}^{l\;b\textrm{'s}}
-    }_{k+l\textrm{ elements}}\}
-  \]
+  \begin{exampleshow}{underbrace}
+    \[\{\underbrace{\overbrace{\mathstrut a,\dots,a}^{k\;a\textrm{'s}},
+        \overbrace{\mathstrut b,\dots,b}^{l\;b\textrm{'s}}
+      }_{k+l\textrm{ elements}}\}
+    \]
+  \end{exampleshow}
+
+  \examplecode{underbrace}
 
   \cmd{mathstrut}等价于 \verb|\vphanthom(|，这相当于插入
   了一个宽度为0，但高度与一个括号相等的盒子，使得两边的大括号
   一样高。
 
   \index{\cmd{mathstrut}}
-  
+
 \item
-  \[\begin{pmatrix}
-      \begin{pmatrix}a&b\\c&d\end{pmatrix} &
-      \begin{pmatrix}e&f\\g&h\end{pmatrix} \\
-      \noalign{\smallskip} 0 &
-      \begin{pmatrix}i&j\\k&l\end{pmatrix}
-    \end{pmatrix}
-  \]
+  \begin{exampleshow}{matrix}
+    \[\begin{pmatrix}
+        \begin{pmatrix}a&b\\c&d\end{pmatrix} &
+        \begin{pmatrix}e&f\\g&h\end{pmatrix} \\
+        \noalign{\smallskip} 0 &
+        \begin{pmatrix}i&j\\k&l\end{pmatrix}
+      \end{pmatrix}
+    \]
+  \end{exampleshow}
+
+  \examplecode{matrix}
 
   \verb|\noalign{\smallskip}|用于增加两行之间的间距。
 
   \index{\cmd{noalign}\{\cmd{smallskip}\}}
 
 \item
-  \[\det\left|
-      \begin{array}{*{5}{l}}
-        c_0&c_1&c_2&\dots&c_n\\
-        c_1&c_2&c_3&\dots&c_{n+1}\\
-        c_2&c_1&c_4&\dots&c_{n+2}\\
-        \,\vdots&\,\vdots&\,\vdots& &\,\vdots\\
-        c_n&c_{n+1}&c_{n+2}&\dots&c_{2n}
-      \end{array}\right|>0\]
+  \begin{exampleshow}{det}
+    \[\det\left|
+        \begin{array}{*{5}{l}}
+          c_0&c_1&c_2&\dots&c_n\\
+          c_1&c_2&c_3&\dots&c_{n+1}\\
+          c_2&c_1&c_4&\dots&c_{n+2}\\
+          \,\vdots&\,\vdots&\,\vdots& &\,\vdots\\
+          c_n&c_{n+1}&c_{n+2}&\dots&c_{2n}
+        \end{array}\right|>0\]
+  \end{exampleshow}
+
+  \examplecode{det}
 
   为了实现对齐，这里采用了 \texttt{array}环境。
   \texttt{mathtools}宏包提供了 \texttt{pmatrix*}环境，
@@ -274,8 +359,12 @@ PDF，并亲自将下面的公式用
   \index{\cmd{right}}
 
 \item
-  \[\mathop{{\sum}'}_{x\in A}f(x)\stackrel{\textrm{def}}=
-    \sum_{\substack{x\in A\\x\neq0}}f(x)\]
+  \begin{exampleshow}{sumprime}
+    \[\mathop{{\sum}'}_{x\in A}f(x)\stackrel{\textrm{def}}=
+      \sum_{\substack{x\in A\\x\neq0}}f(x)\]
+  \end{exampleshow}
+
+  \examplecode{sumprime}
 
   由于在数学模式中 \texttt{'}等价于 \verb|^\prime|，
   而巨算符会改变上标
@@ -283,42 +372,55 @@ PDF，并亲自将下面的公式用
   我们需要用 \cmd{mathop}临时制作一个新的巨算符。
 
   \index{\cmd{mathop}}
-  
+
 \item
-  \newcommand*{\bottomalign}[1]%
-  {\genfrac{}{}{0pt}{}{#1}{}}
-  \[2\uparrow\uparrow k\stackrel{\textrm{def}}=
-    2^{2^{2^{\cdot^{\cdot^{\cdot^2}}}}}
-    \bottomalign{\Bigr\}\scriptstyle k}
-  \]
+  \begin{exampleshow}{genfrac}
+    \newcommand*{\bottomalign}[1]%
+    {\genfrac{}{}{0pt}{}{#1}{}}
+    \[2\uparrow\uparrow k\stackrel{\textrm{def}}=
+      2^{2^{2^{\cdot^{\cdot^{\cdot^2}}}}}
+      \bottomalign{\Bigr\}\scriptstyle k}
+    \]
+  \end{exampleshow}
+
+  \examplecode{genfrac}
 
   \citetitle{TeXbook}采用了 \cmd{vbox}和 \cmd{hbox}
   的组合实现了大括号沿下侧对齐。而这里使用了 \cmd{genfrac}
   命令，可以达到相同的效果，同时兼容了 Mathjax。
 
 \item
-  \[\begin{tikzcd}
-      & & & 0 \arrow[d]
-      & \\
-      0 \arrow[r] & \mathcal O_C \arrow[r,"\imath"]
-      \arrow[d,equal] & \mathcal E \arrow[r,"\rho"]
-      \arrow[d,"\phi"] & \mathcal L \arrow[r] \arrow[d,"\psi"]
-      & 0 \\
-      0 \arrow[r] & \mathcal O_C \arrow[r] & \pi_*\mathcal O_D
-      \arrow[r,"\delta"] & R^1F_*\mathcal O_V(-D) \arrow[r]
-      \arrow[d]
-      & 0 \\
-      & & & R^1F_*(\mathcal O_V(-iM))\otimes\gamma^{-1} \arrow[d] & \\
-      & & & 0 &
-    \end{tikzcd}
-  \]
+  \begin{exampleshow}{tikzcd}
+    \[\begin{tikzcd}
+        & & & 0 \arrow[d]
+        & \\
+        0 \arrow[r] & \mathcal O_C \arrow[r,"\imath"]
+        \arrow[d,equal] & \mathcal E \arrow[r,"\rho"]
+        \arrow[d,"\phi"] & \mathcal L \arrow[r] \arrow[d,"\psi"]
+        & 0 \\
+        0 \arrow[r] & \mathcal O_C \arrow[r] & \pi_*\mathcal O_D
+        \arrow[r,"\delta"] & R^1F_*\mathcal O_V(-D) \arrow[r]
+        \arrow[d]
+        & 0 \\
+        & & & R^1F_*(\mathcal O_V(-iM))\otimes\gamma^{-1} \arrow[d] & \\
+        & & & 0 &
+      \end{tikzcd}
+    \]
+  \end{exampleshow}
+
+  \examplecode{tikzcd}
 
   这个交换图在 \citetitle{TeXbook}是用矩阵实现的。但利用宏包
   \texttt{tikz-cd}，可以更方便，灵活地绘制交换图。
-  
+
 \end{enumerate}
 
 \printindex
 
 \printbibliography
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% End:
