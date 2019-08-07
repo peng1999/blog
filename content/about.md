@@ -1,6 +1,6 @@
 +++
 title = "About"
-template = "page.html" 
+template = "page.html"
 date = 2018-07-29
 [taxonomies]
 tags = ["meta"]
@@ -19,6 +19,6 @@ See [this post](./first-blog.md).
 
 ## Friends
 
-**dykai** https://tec.blog.ykai.top/
+**dykai** <https://tec.blog.ykai.top/>
 
 
