@@ -17,4 +17,8 @@ See [this post](./first-blog.md).
 
 [peng1999](https://github.com/peng1999)
 
+## Friends
+
+**dykai** https://tec.blog.ykai.top/
+
 
