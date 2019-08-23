@@ -1,6 +1,6 @@
 +++
-title = "About this blog"
-template = "page.html" 
+title = "关于这个博客"
+template = "page.html"
 date = 2018-07-18T12:00:00+08:00
 [taxonomies]
 tags = ["meta"]
@@ -14,6 +14,8 @@ tags = ["meta"]
 Gutenberg 已经被重命名为 [Zola](https://www.getzola.org)。
 
 ## 历史
+
+<s>充分说明我的拖延症</s>
 
 1. 2018年7月至11月。
 

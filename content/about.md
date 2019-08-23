@@ -1,5 +1,5 @@
 +++
-title = "About"
+title = "About Me"
 template = "page.html"
 date = 2018-07-29
 [taxonomies]
@@ -20,5 +20,3 @@ See [this post](./first-blog.md).
 ## Friends
 
 **dykai** <https://tec.blog.ykai.top/>
-
-
