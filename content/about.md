@@ -11,7 +11,7 @@ I'm a CS undergraduate student of [NPU](http://www.nwpu.edu.cn).
 
 ## About this blog
 
-See [this post](./first-blog.md).
+See [this post](@/first-blog.md).
 
 ## Github
 
