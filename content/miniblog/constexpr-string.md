@@ -6,7 +6,7 @@ date = 2019-12-19
 tags = ["programming"]
 +++
 
-按照 [Andrzej's C++ blog] 里的一篇文章的思路，我实现了一个编译期的字符串拼接：
+按照 [Andrzej's C++ blog] 里这篇文章的思路，我实现了一个编译期的字符串拼接：
 
 ```c++
 template<int N>
@@ -53,6 +53,7 @@ constexpr sstring q {"456"};
 constexpr sstring r {s + q};
 ```
 
+- `constexpr string` 有什么用？这至少在初始化全局静态变量时有用。`constexpr` 静态变量不会存在烦人的初始化顺序问题。
 - 因为用到了 deducing guide，所以至少需要在 C++ 17 下编译。
 - `std::string` 将在 C++ 20 支持 `constexpr`，不过编译器全部普及这个特性可能还要等好几年。
     - C++ 现在有一种「`constexpr` Everything」的倾向。这是为了更好的实现元编程。这是好事。

@@ -1,6 +1,6 @@
 +++
 title = "About Me"
-template = "page.html"
+template = "about.html"
 date = 2018-07-29
 [taxonomies]
 tags = ["meta"]
