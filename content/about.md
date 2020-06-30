@@ -20,3 +20,5 @@ See [this post](@/first-blog.md).
 ## Friends
 
 **dykai** <https://tec.blog.ykai.top/>
+
+**Kehan** <https://blog.kehan.site/>
