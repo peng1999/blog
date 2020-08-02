@@ -3,3 +3,7 @@ main .post .hashtag {
   font-size: 70%;
   background: none;
 }
+
+main .about code, main .post code {
+    background: unset;
+}
