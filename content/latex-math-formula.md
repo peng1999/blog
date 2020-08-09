@@ -9,7 +9,7 @@ tags = ["latex"]
 \\(\LaTeX\\) 是一款非常优秀的文档准备系统，它强大的数学排版功能举世闻
 名。由于 [Mathjax](https://www.mathjax.org/) 的广泛采用，\\(\LaTeX\\) 数学公式也成为了 Web 技术上数学
 公式排版的事实标准。但 \\(\LaTeX\\) 的学习曲线陡峭，基本的命令难以轻松应
-对实际写作中遇到的复杂公式。本文选取并实现了 [\\(\textrm{The \TeX{}book}\\)](http://www.ctex.org/documents/shredder/src/texbook.pdf) 第 18 章
+对实际写作中遇到的复杂公式。本文选取并实现了 [\\(\textrm{The \TeX{}book}\\)](https://ctan.org/pkg/texbook) 第 18 章
 末尾提供的 20 个 Chanllenge。以期为想要深入学习 \\(\LaTeX\\) 公式排版的读
 者提供参考。
 
