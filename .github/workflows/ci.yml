@@ -12,6 +12,6 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Zola Deploy to Pages
-      uses: shalzz/zola-deploy-action@v0.11.0
+      uses: shalzz/zola-deploy-action@master
       env:
         TOKEN: ${{ secrets.TOKEN }}
