@@ -1,7 +1,7 @@
 +++
 title = "2020 个人年度电影"
 template = "page.html"
-date = 2020-12-29
+date = 2021-01-04
 [taxonomies]
 tags = ["movie"]
 +++
