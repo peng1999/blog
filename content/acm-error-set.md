@@ -26,3 +26,13 @@ tags = ["acm"]
 ### 4. [PAT (Advanced Level) Practice 1003](https://pintia.cn/problem-sets/994805342720868352/problems/994805523835109376)
 
 忘记小顶堆应该使用 `priority_queue<T, vector<T>, greater<>>`。
+
+### 5. [PAT (Advanced Level) Practice 1022](https://pintia.cn/problem-sets/994805342720868352/problems/994805480801550336)
+
+没有输出数字的前导零。
+
+`printf("%013lf", num);`的等价方法：
+
+```cpp
+cout << setfill('0') << setw(13) << num;
+```
