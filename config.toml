@@ -2,19 +2,20 @@ title = "pg999w's blog"
 
 description = "My life, experience and knowledge"
 
-# document is in https://www.getzola.org/documentation/getting-started/configuration/
 base_url = "https://peng1999.github.io/blog/"
 compile_sass = true
-highlight_code = true
-highlight_theme = "ayu-light"
-build_search_index = true
-generate_rss = true
+generate_feed = true
+feed_filename = "rss.xml"
 
 theme = "even"
 
 taxonomies = [
-    {name = "tags", rss = true},
+    {name = "tags", feed = true},
 ]
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-light"
 
 [extra]
 # even configs

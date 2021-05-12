@@ -21,4 +21,4 @@ See [this post](@/first-blog.md).
 
 **dykai** <https://tec.blog.ykai.top/>
 
-**Kehan** <https://blog.kehan.site/>
+**Kehan** <https://kehan.xyz/>
