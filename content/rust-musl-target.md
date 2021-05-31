@@ -12,7 +12,7 @@ Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运�
 > 本文使用的 Rust 版本为 1.54.0-nightly (5dc8789e3 2021-05-21)。
 
 静态编译到 musl 的难度取决于程序是否依赖 C/C++。一般来说[纯 Rust 项目 &lt; 只依赖 C 的项目 &lt; 依赖 C++ 的项目](hard)。
-一般来说 Rust 的交叉编译用 [cross](cross) 就可以方便地完成，但是 cross 在 musl 下却[不支持 C++](cross-cxx)。
+其实 Rust 的交叉编译用 [cross](cross) 就可以方便地完成，但是 cross 在 musl 下却[不支持 C++](cross-cxx)。
 我之前在项目中不幸用到了依赖了 C++ 库的[grpc-rs](grpc-rs)，一番折腾之后也没有能够成功编译到 musl。有没有更方便的方法编译呢？
 
 这时候我看到了 [Zig Makes Rust Cross-compilation Just Work](just-work) 这篇文章。
@@ -112,6 +112,7 @@ $ ldd target/x86_64-unknown-linux-musl/debug/xxx
 [hard]: https://zhuanlan.zhihu.com/p/38948830
 [cross]: https://github.com/rust-embedded/cross
 [cross-cxx]: https://github.com/rust-embedded/cross/issues/101
+[grpc-rs]: https://github.com/tikv/grpc-rs
 [just-work]: https://actually.fyi/posts/zig-makes-rust-cross-compilation-just-work/
 
 [zig]: https://ziglang.org/
