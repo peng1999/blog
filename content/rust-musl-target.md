@@ -12,11 +12,10 @@ Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运�
 > 本文使用的 Rust 版本为 1.54.0-nightly (5dc8789e3 2021-05-21)。
 
 静态编译到 musl 的难度取决于程序是否依赖 C/C++。一般来说[纯 Rust 项目 &lt; 只依赖 C 的项目 &lt; 依赖 C++ 的项目](hard)。
-[cross](cross) 提供了方便的基于容器的 Rust 交叉编译工具，但是在 musl 下却[不支持 C++](cross-cxx)。
-而我之前在项目中用到的[grpc-rs](grpc-rs)不幸依赖了 C++ 库。有没有更方便的方法编译到 musl 呢？
+一般来说 Rust 的交叉编译用 [cross](cross) 就可以方便地完成，但是 cross 在 musl 下却[不支持 C++](cross-cxx)。
+我之前在项目中不幸用到了依赖了 C++ 库的[grpc-rs](grpc-rs)，一番折腾之后也没有能够成功编译到 musl。有没有更方便的方法编译呢？
 
-## Zig Makes Rust Cross-compilation Just Work[^just-work]
-
+这时候我看到了 [Zig Makes Rust Cross-compilation Just Work](just-work) 这篇文章。
 [Zig](zig) 是一门尚未到达 1.0 的新语言，但是其开发者在交叉编译领域已经投入了非常多的精力。结果就是 Zig 在 12MiB 的安装包里面带了 47 个 target 的工具链，并且自带了 C/C++ 编译器。只需要安装好 Zig，就能极大简化 musl 编译。
 
 ## 设置 Zig wrapper
@@ -101,6 +100,8 @@ $ ldd target/x86_64-unknown-linux-musl/debug/xxx
         not a dynamic executable
 ```
 
+一番折腾之后，总结下来就是添加两个 Zig wrapper，然后配置一下 Cargo config 就可以了。附加的一点就是编译工具需要支持 Clang，上面遇到的问题就是老旧的 CMake 不支持 Clang 编译汇编。总的来说，`zig cc` 还是很好用的。
+
 ---
 
 # Footnote
@@ -111,8 +112,6 @@ $ ldd target/x86_64-unknown-linux-musl/debug/xxx
 [hard]: https://zhuanlan.zhihu.com/p/38948830
 [cross]: https://github.com/rust-embedded/cross
 [cross-cxx]: https://github.com/rust-embedded/cross/issues/101
-
-[^just-work]:
-来自博客 https://actually.fyi/posts/zig-makes-rust-cross-compilation-just-work/
+[just-work]: https://actually.fyi/posts/zig-makes-rust-cross-compilation-just-work/
 
 [zig]: https://ziglang.org/
