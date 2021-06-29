@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - ros</title>
+        <link>https://peng1999.github.io/blog/</link>
+        <description>My life, experience and knowledge</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://peng1999.github.io/blog/tags/ros/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Docker 搭建 RoboMaster RoboRTS 框架构建环境</title>
+            <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/nanoblog/ros-docker/</link>
+            <guid>https://peng1999.github.io/blog/nanoblog/ros-docker/</guid>
+            <description>&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;RoboMaster&#x2F;RoboRTS&quot;&gt;RoboRTS&lt;&#x2F;a&gt; 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 &lt;a href=&quot;https:&#x2F;&#x2F;www.ros.org&#x2F;&quot;&gt;ROS&lt;&#x2F;a&gt;，
+在非 Ubuntu&#x2F;CentOS 的 Linux 机器上面安装较为困难。于是我们采用基于 docker 的构建方案。&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

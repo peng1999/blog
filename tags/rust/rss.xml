@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - rust</title>
+        <link>https://peng1999.github.io/blog/</link>
+        <description>My life, experience and knowledge</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://peng1999.github.io/blog/tags/rust/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 30 May 2021 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>Rust 编译到 musl target 的踩坑记录</title>
+            <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/rust-musl-target/</link>
+            <guid>https://peng1999.github.io/blog/rust-musl-target/</guid>
+            <description>&lt;p&gt;Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运行时&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#linkage&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;，而不同发行版之间的 libc 可能会有兼容性问题。如果想要把一次编译好的可执行文件放到不同的 Linux 发行版上面去跑，最好采用 x86_64-unknown-linux-musl 目标进行静态编译。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>从 C++ 的错误处理说起</title>
+            <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/c-p0709/</link>
+            <guid>https://peng1999.github.io/blog/c-p0709/</guid>
+            <description>&lt;p&gt;&lt;strong&gt;错误处理&lt;&#x2F;strong&gt;是一个非常重要的软件工程问题。对软件中出现的非致命错误的不当处理，是几乎所有的灾难性系统故障的诱因。&lt;sup class=&quot;footnote-reference&quot;&gt;&lt;a href=&quot;#most&quot;&gt;1&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; 编程语言往往需要提供一些用于错误处理的语言设施，这些设施反过来会影响项目中错误处理的方式。不同的语言错误处理方式不同。例如 Java 采用基于 try-throw-catch 语法的异常机制，而 Go 语言则选择手动检测函数返回的 &lt;code&gt;error&lt;&#x2F;code&gt; 对象。一个令人惊讶的事实是，C++ 到现在还没有一个被广泛接受的错误处理方式。&lt;&#x2F;p&gt;
+</description>
+        </item>
+        <item>
+            <title>Rust 的指针别名优化</title>
+            <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/csarpp-opt/</link>
+            <guid>https://peng1999.github.io/blog/csarpp-opt/</guid>
+            <description>&lt;p&gt;本文研究了基于 Rust 具有的所有权语义的一些优化。&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - linux</title>
+        <link>https://peng1999.github.io/blog/</link>
+        <description>My life, experience and knowledge</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://peng1999.github.io/blog/tags/linux/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>你应该使用 Neovim</title>
+            <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/you-should-use-neovim/</link>
+            <guid>https://peng1999.github.io/blog/you-should-use-neovim/</guid>
+            <description>&lt;p&gt;本文旨在说服读者将自己的文本编辑工具从 Vim 转到 Neovim。&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

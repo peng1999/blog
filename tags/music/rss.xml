@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - music</title>
+        <link>https://peng1999.github.io/blog/</link>
+        <description>My life, experience and knowledge</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://peng1999.github.io/blog/tags/music/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sun, 06 Dec 2020 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>赏析：德沃夏克，第九交响曲“自新世界”，作品95号</title>
+            <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/nanoblog/dvorak-symphony-9/</link>
+            <guid>https://peng1999.github.io/blog/nanoblog/dvorak-symphony-9/</guid>
+            <description>&lt;p&gt;&lt;strong&gt;第二乐章 Largo “广板”，D♭大调&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</description>
+        </item>
+    </channel>
+</rss>

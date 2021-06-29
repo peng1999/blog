@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - journey</title>
+        <link>https://peng1999.github.io/blog/</link>
+        <description>My life, experience and knowledge</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://peng1999.github.io/blog/tags/journey/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 13 Aug 2018 00:00:00 +0000</lastBuildDate>
+        <item>
+            <title>稻城游记</title>
+            <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+            <link>https://peng1999.github.io/blog/daocheng-journey/</link>
+            <guid>https://peng1999.github.io/blog/daocheng-journey/</guid>
+            <description>&lt;figure style=&quot;margin:0&quot;&gt;
+&lt;img alt=&quot;Photo of Yading&quot; src=&quot;https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;12483662&#x2F;44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg&quot;&gt;
+&lt;figcaption&gt;摄于2018年8月10日&lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+</description>
+        </item>
+    </channel>
+</rss>
