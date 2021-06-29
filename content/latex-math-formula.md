@@ -21,6 +21,6 @@ Knuth 在 The \\(\TeX\\)book 的附录中给出了全部习题的答案，但全
 一个例外是 `commath` 宏包提供的 `\dif` 命令。但即使不引用这个宏包，也可
 以轻易地通过定义 `\DeclareMathOperator{\dif}{d\!}` 来使用这个命令。
 
-这篇文章是用 \\(\LaTeX\\) 写的，目前只有 [PDF 版本](latex-math/TeXbookFormula.pdf)。你也可以前往 [Github](https://github.com/peng1999/blog/blob/master/static/latex-math/TeXbookFormula.pdf) 在线阅读
+这篇文章是用 \\(\LaTeX\\) 写的，目前只有 [PDF 版本](../latex-math/TeXbookFormula.pdf)。你也可以前往 [Github](https://github.com/peng1999/blog/blob/master/static/latex-math/TeXbookFormula.pdf) 在线阅读
 
-文档的源码[在这里](/latex-math/TeXbookFormula.tex)。
+文档的源码[在这里](../latex-math/TeXbookFormula.tex)。
