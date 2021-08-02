@@ -2,7 +2,7 @@ title = "pg999w's blog"
 
 description = "My life, experience and knowledge"
 
-base_url = "https://peng1999.github.io/blog/"
+base_url = "https://blog.pg999w.top/"
 compile_sass = true
 generate_feed = true
 feed_filename = "rss.xml"
