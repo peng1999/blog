@@ -1,8 +1,6 @@
 +++
 title = "2019 个人年度电影"
 date = 2019-12-28
-[taxonomies]
-tags = ["movie"]
 +++
 
 ## 规则

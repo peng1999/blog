@@ -1,1 +1,28 @@
-nanoblog/perl-hex.md
++++
+title = "用 Perl 进制转换"
+date = 2020-06-22
+[taxonomies]
+tags = ["programming"]
++++
+
+现在需要把一堆十进制数转换为二进制数，在 Vim 里可以用 `:'<,'>!command` 来做转换。
+但是我发现常见的行处理程序 `awk` 根本搞不定进制转换，所以还是用最强大的字符处理语言 Perl 来搞。
+命令如下：
+
+```sh
+perl -ne 'printf("%032b\n", $_)'
+```
+
+如果输入是十六进制呢？加个 `hex` 函数就行：
+
+```sh
+perl -ne 'printf("%032b\n", hex($_))'
+```
+
+如果一行有多个字段，只想转换第二个呢？这就要用到 `-a` 参数，此时 `$_` 变为数组 `@F`：
+
+```sh
+perl -ane 'printf("%s\t%032b\n", @F[0], hex(@F[1]))'
+```
+
+最后注意在 Vim 中 `%` 符号需要转义。

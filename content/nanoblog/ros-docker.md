@@ -1,8 +1,6 @@
 +++
 title = "Docker 搭建 RoboMaster RoboRTS 框架构建环境"
 date = 2020-08-02
-[taxonomies]
-tags = ["programming", "cpp", "ros"]
 +++
 
 [RoboRTS] 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 [ROS]，

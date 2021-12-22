@@ -1,8 +1,6 @@
 +++
 title = "用 Perl 进制转换"
 date = 2020-06-22
-[taxonomies]
-tags = ["programming"]
 +++
 
 现在需要把一堆十进制数转换为二进制数，在 Vim 里可以用 `:'<,'>!command` 来做转换。

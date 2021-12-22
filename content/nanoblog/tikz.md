@@ -1,8 +1,6 @@
 +++
 title = "Inverse clip in TikZ"
 date = 2019-12-22
-[taxonomies]
-tags = ["latex"]
 +++
 
 [Ti*k*Z] 虽然强大，但是也过于复杂。下面尝试绘制下面的图形。

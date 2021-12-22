@@ -1,8 +1,6 @@
 +++
 title = "2020 个人年度电影"
 date = 2021-01-04
-[taxonomies]
-tags = ["movie"]
 +++
 
 ## 规则

@@ -1,8 +1,6 @@
 +++
 title = "constexpr string"
 date = 2019-12-19
-[taxonomies]
-tags = ["programming", "cpp"]
 +++
 
 按照 [Andrzej's C++ blog] 里这篇文章的思路，我实现了一个编译期的字符串拼接：
