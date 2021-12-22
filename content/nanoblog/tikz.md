@@ -1,6 +1,5 @@
 +++
 title = "Inverse clip in TikZ"
-template = "page.html"
 date = 2019-12-22
 [taxonomies]
 tags = ["latex"]

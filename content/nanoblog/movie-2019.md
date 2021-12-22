@@ -1,6 +1,5 @@
 +++
 title = "2019 个人年度电影"
-template = "page.html"
 date = 2019-12-28
 [taxonomies]
 tags = ["movie"]

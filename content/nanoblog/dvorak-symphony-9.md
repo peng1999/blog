@@ -1,6 +1,5 @@
 +++
 title = "赏析：德沃夏克，第九交响曲“自新世界”，作品95号"
-template = "page.html"
 date = 2020-12-06
 [taxonomies]
 tags = ["music"]

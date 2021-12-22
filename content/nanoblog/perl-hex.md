@@ -1,6 +1,5 @@
 +++
 title = "用 Perl 进制转换"
-template = "page.html"
 date = 2020-06-22
 [taxonomies]
 tags = ["programming"]

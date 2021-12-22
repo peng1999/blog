@@ -1,6 +1,5 @@
 +++
 title = "constexpr string"
-template = "page.html"
 date = 2019-12-19
 [taxonomies]
 tags = ["programming", "cpp"]
