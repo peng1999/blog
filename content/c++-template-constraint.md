@@ -10,9 +10,7 @@ tags = ["programming", "cpp"]
 
 <!-- more -->
 
-我们有一个基类 `Base`，一个子类 `Derived: public Base`，和一个无关的类 `Other`。
-我们希望实现一个类模版 `M<T>`，只能接受该类的派生类作为类型参数，即 `M<Derived>` 可以编译通过，
-而 `M<Other>` 则拒绝编译。应该怎么办？
+我们有一个基类 `Base`，一个子类 `Derived: public Base`，和一个无关的类 `Other`。我们希望实现一个类模版 `M<T>`，只能接受该类的派生类作为类型参数，即 `M<Derived>` 可以编译通过，而 `M<Other>` 则拒绝编译。应该怎么办？
 
 > 以下代码皆依赖头文件 `<type_traits>`
 
@@ -148,8 +146,7 @@ a.cpp:36:5: note: in instantiation of default argument for 'B<Other>' required h
 
 ### C++ 17
 
-错误信息相较 C++ 14 的写法没有任何改进。
-换句话说，如果你在用 C++ 14 或 C++ 17 的写法，你现在能取得的最好的结果是，编译器告诉你，有一个
+错误信息相较 C++ 14 的写法没有任何改进。换句话说，如果你在用 C++ 14 或 C++ 17 的写法，你现在能取得的最好的结果是，编译器告诉你，有一个
 `std::is_base_of_v<Base, T>` 无法满足约束。至于这个 `T` 是什么，自己猜去吧。
 
 ### C++ 20

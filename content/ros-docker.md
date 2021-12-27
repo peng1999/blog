@@ -5,8 +5,7 @@ date = 2020-08-02
 tags = ["programming", "cpp", "ros"]
 +++
 
-[RoboRTS] 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 [ROS]，
-在非 Ubuntu/CentOS 的 Linux 机器上面安装较为困难。于是我们采用基于 docker 的构建方案。
+[RoboRTS] 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 [ROS]，在非 Ubuntu/CentOS 的 Linux 机器上面安装较为困难。于是我们采用基于 docker 的构建方案。
 
 <!-- more -->
 Dockerfile 如下：
