@@ -11,10 +11,10 @@ Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运�
 
 > 本文使用的 Rust 版本为 1.54.0-nightly (5dc8789e3 2021-05-21)。
 
-静态编译到 musl 的难度取决于程序是否依赖 C/C++。一般来说[纯 Rust 项目 &lt; 只依赖 C 的项目 &lt; 依赖 C++ 的项目](hard)。其实 Rust 的交叉编译用 [cross](cross) 就可以方便地完成，但是 cross 在 musl 下却[不支持 C++](cross-cxx)。我之前在项目中不幸用到了依赖了 C++ 库的[grpc-rs](grpc-rs)，一番折腾之后也没有能够成功编译到 musl。有没有更方便的方法编译呢？
+静态编译到 musl 的难度取决于程序是否依赖 C/C++。一般来说[纯 Rust 项目 &lt; 只依赖 C 的项目 &lt; 依赖 C++ 的项目][hard]。其实 Rust 的交叉编译用 [cross] 就可以方便地完成，但是 cross 在 musl 下却[不支持 C++][cross-cxx]。我之前在项目中不幸用到了依赖了 C++ 库的[grpc-rs]，一番折腾之后也没有能够成功编译到 musl。有没有更方便的方法编译呢？
 
-这时候我看到了 [Zig Makes Rust Cross-compilation Just Work](just-work) 这篇文章。
-[Zig](zig) 是一门尚未到达 1.0 的新语言，但是其开发者在交叉编译领域已经投入了非常多的精力。结果就是 Zig 在 12MiB 的安装包里面带了 47 个 target 的工具链，并且自带了 C/C++ 编译器。只需要安装好 Zig，就能极大简化 musl 编译。
+这时候我看到了 [Zig Makes Rust Cross-compilation Just Work][just-work] 这篇文章。
+[Zig] 是一门尚未到达 1.0 的新语言，但是其开发者在交叉编译领域已经投入了非常多的精力。结果就是 Zig 在 12MiB 的安装包里面带了 47 个 target 的工具链，并且自带了 C/C++ 编译器。只需要安装好 Zig，就能极大简化 musl 编译。
 
 ## 设置 Zig wrapper
 
@@ -110,4 +110,4 @@ $ ldd target/x86_64-unknown-linux-musl/debug/xxx
 [grpc-rs]: https://github.com/tikv/grpc-rs
 [just-work]: https://actually.fyi/posts/zig-makes-rust-cross-compilation-just-work/
 
-[zig]: https://ziglang.org/
+[Zig]: https://ziglang.org/
