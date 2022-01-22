@@ -7,7 +7,7 @@ tags = ["programming", "julia"]
 
 CUDA 本身是一个 C 库，而 CUDA kernel 则需要使用扩展的 C/C++ 语法。但 [CUDA.jl] 让 Julia CUDA 编程成为可能。然而虽然 CUDA.jl 实现了绝大多数 CUDA 的功能，但其文档仍很不完善。本文补充了一些常见 CUDA 功能在 Julia 中的写法。本文假设读者预先具有 Julia，CUDA，以及 CUDA.jl 的基本知识。
 
-[CUDA.jl](https://cuda.juliagpu.org/stable/)
+[CUDA.jl]: https://cuda.juliagpu.org/stable/
 
 <!-- more -->
 
