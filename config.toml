@@ -15,7 +15,7 @@ taxonomies = [
 
 [markdown]
 highlight_code = true
-highlight_theme = "ayu-light"
+highlight_theme = "base16-ocean-light"
 
 [extra]
 # even configs

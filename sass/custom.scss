@@ -4,6 +4,6 @@ main .post .hashtag {
   background: none;
 }
 
-main .about code, main .post code {
-    background: unset;
+main .post pre code {
+    color: unset;
 }
