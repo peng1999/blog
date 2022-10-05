@@ -6,7 +6,7 @@ date = 2018-07-29
 tags = ["meta"]
 +++
 
-I'm a CS undergraduate student of [NPU](http://www.nwpu.edu.cn).
+I'm a CS graduate student of [SJTU](https://www.sjtu.edu.cn/). My undergraduate degree was completed at [NWPU](http://www.nwpu.edu.cn).
 <!-- more -->
 
 ## About this blog
@@ -19,8 +19,8 @@ See [this post](@/first-blog.md).
 
 ## Friends
 
-**dykai** <https://tec.blog.ykai.top/>
+**dykai** <https://blog.ykai.top/>
 
 **Kehan** <https://blog.kehan.xyz/>
 
-**zzsqwq** <https://www.zzsqwq.cn/>
+**zzsqwq** <https://blog.zzsqwq.cn/>
