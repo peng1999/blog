@@ -5,9 +5,18 @@ date = 2022-12-11
 tags = ["rust", "nix"]
 +++
 
-SmartCross 项目的介绍见[这里](smartcross)。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 [Nix] 表达式来管理该项目的环境。
+SmartCross 项目的介绍见[这里][smartcross]。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 [Nix] 表达式来管理该项目的环境。
 
 <!-- more -->
+
+Nix 是很多东西的总称，包括
+
+- 一个函数式编程语言 Nix 表达式
+- 一个用 Nix Expression 进行打包的包管理系统 Nix，同时支持各种 Linux 和 MacOS，并允许多个版本的相同软件在系统中并存
+- 一个世界上[最大][repo]的软件包仓库 Nixpkgs
+- 一个操作系统 NixOS，使用 Nix 表达式来定义整个系统的软件和配置，并实现了原子更新和方便地系统回滚
+
+同时 Nixpkgs 提供了一流的交叉编译支持。下面将编写描述构建环境的 Nix 表达式。
 
 ## CMake 项目的打包
 
@@ -57,7 +66,7 @@ stdenv.mkDerivation rec {
 
 ### 使用 `buildRustPackage`
 
-Rust 项目可以用 `nixpkgs.buildRustPackage.rustPlatform` 打包。同样是简单按模版填空即可。下面是 `nix/smartcross_controller.nix` 文件。
+Rust 项目可以用 `nixpkgs.rustPlatform.buildRustPackage` 打包。同样是简单按模版填空即可。下面是 `nix/smartcross_controller.nix` 文件。
 
 ```nix
 { rustToolchain,
@@ -242,4 +251,5 @@ rustc 1.65.0 (897e37553 2022-11-02)
 [Nix]: https://nixos.org/
 [libubootenv]: https://github.com/sbabic/libubootenv
 [Crane]: https://github.com/ipetkov/crane
+[repo]: https://repology.org/repositories/statistics/nonunique
 
