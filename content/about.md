@@ -13,9 +13,10 @@ I'm a CS graduate student of [SJTU](https://www.sjtu.edu.cn/). My undergraduate 
 
 See [this post](@/first-blog.md).
 
-## Github
+## More info about me
 
-[peng1999](https://github.com/peng1999)
+[GitHub](https://github.com/peng1999)
+[Wikipedia](https://zh.wikipedia.org/wiki/User:Pg999w)
 
 ## Friends
 
