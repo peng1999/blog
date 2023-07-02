@@ -27,3 +27,5 @@ See [this post](@/first-blog.md).
 **zzsqwq** <https://blog.zzsqwq.cn/>
 
 **Jiali** <https://anlarry.github.io/>
+
+**Macromogic** <https://macromogic.xyz>
