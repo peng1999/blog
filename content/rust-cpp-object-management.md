@@ -106,8 +106,7 @@ Rust 的赋值操作符总是移动。神奇的是，C++ 中其实有类似的�
 struct S {
   // constructors...
   void operator=(S rhs) { // by value
-    auto tmp = std::move(rhs);
-    swap(tmp, *this);
+    swap(rhs, *this);
   }
 }
 
@@ -115,21 +114,22 @@ S a, b;
 a = b; // stmt1
 a = std::move(b); // stmt2
 ```
-这里返回值为 `void` 是为了和 Rust 保持对称。这里使用 copy-and-swap 的 C++ 技巧，将赋值运算符巧妙地转发到了构造函数。`swap` 一般就是简单的浅复制就可以实现，我们忽略不计。现在看看 stmt1 发生的复制和移动：
+这里返回值为 `void` 是为了和 Rust 保持对称。这里使用 copy-and-swap 的 C++ 技巧，将赋值运算符巧妙地转发到了构造函数，同时这一个赋值操作符重栽同时替代了复制和移动操作符重载。`swap` 一般可以由简单的 memcpy 实现。现在看看 stmt1 发生的复制和移动：
 
 - b -> rhs，一次复制
-- rhs -> tmp，一次移动
+- rhs -> *this，一次浅复制
 
 而 stmt2：
 
-- b -> rhs，rhs -> tmp，两次移动
+- b -> rhs，一次移动
+- rhs -> *this，一次浅复制
 
 而对应的 Rust 代码：
 ```rust
 a = b.clone(); // stmt1
 a = b; // stmt2
 ```
-stmt1 发生了一次复制和一次移动，stmt2 发生一次移动。我们可以看到对于复制操作，两种语言所具有的对称性。Rust 正是使用这种机制为所有对象实现了默认且不可重载的赋值操作。
+stmt1 发生了一次复制和一次移动，stmt2 发生一次移动。Rust 的移动基本相当于 C++ 的浅复制。我们可以看到对于复制操作，两种语言所具有的对称性。Rust 正是使用这种机制为所有对象实现了默认且不可重载的赋值操作。
 
 # 析构函数
 
