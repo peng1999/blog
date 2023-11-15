@@ -96,7 +96,7 @@ auto s2 = s1; // no temporary, only s1 and s2
 
 而 C++ 的移动，套用 *Effective Modern C++, Item 29* 的话来说：**移动操作可能不存在，成本高，或未被使用。**
 
-之所以会是如此，是因为 C++ 中对象被移动后仍然可用，仍然会被调用构造函数。在 C++ 中，而 Rust 则没有这个问题。 @kulx 老师在上篇帖子中已经阐述了这一点。
+之所以会是如此，是因为 C++ 中对象被移动后仍然可用，仍然会被调用构造函数。在 C++ 中必须要给被移动走的对象设置一个空状态。而 Rust 则没有这个问题。
 
 这两个语言的移动区别如此之大，以至于本节无法给出有意义的代码对比。
 
@@ -106,7 +106,7 @@ Rust 的赋值操作符总是移动。神奇的是，C++ 中其实有类似的�
 struct S {
   // constructors...
   void operator=(S rhs) { // by value
-    auto member = std::move(rhs.member);
+    auto tmp = std::move(rhs);
     swap(tmp, *this);
   }
 }
