@@ -29,3 +29,5 @@ See [this post](@/first-blog.md).
 **Jiali** <https://anlarry.github.io/>
 
 **Macromogic** <https://macromogic.xyz>
+
+**haotian** <https://thehaotian.com/>
