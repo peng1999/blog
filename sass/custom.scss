@@ -1,9 +1,33 @@
-main .post .hashtag {
-  color: gray;
-  font-size: 70%;
-  background: none;
+#header .logo {
+  font-family: "Noto Serif Display", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+main .post  {
+  font-family: "Noto Serif SC", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  .post-content h1 {
+    font-size: 24px;
+  }
+
+  h1, h2, h3, h4, h5, h6, h1.post__title {
+    font-family: "Noto Sans SC", sans-serif;
+    font-weight: 320;
+    font-style: normal;
+  }
+
+  .hashtag {
+    color: gray;
+    font-size: 70%;
+    background: none;
+  }
+
+  pre code {
+      color: unset;
+  }
 }
 
-main .post pre code {
-    color: unset;
-}
+
+

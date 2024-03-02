@@ -1,8 +1,7 @@
 {% extends "even/templates/page.html" %}
 
 {% block css %}
-    <link rel="stylesheet" href="{{ get_url(path="site.css", trailing_slash=false) }}">
-    <link rel="stylesheet" href="{{ get_url(path="custom.css", trailing_slash=false) }}">
+    {% include "style.html" %}
 {% endblock css %}
 
 {% block extra_head %}
