@@ -19,7 +19,7 @@ highlight_theme = "base16-ocean-light"
 
 [extra]
 # even configs
-even_title = "pg999w's blog"
+even_title = "pg999w’s blog"
 
 even_menu = [
     {url = "$BASE_URL/rss.xml", name = "RSS"},
