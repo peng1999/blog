@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - go</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/go/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 24 Mar 2022 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Too many channels in Rust but only one in Go</title>
+          <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/too-many-channels/</link>
+          <guid>https://blog.pg999w.top/too-many-channels/</guid>
+          <description xml:base="https://blog.pg999w.top/too-many-channels/">&lt;style type=&quot;text&#x2F;css&quot;&gt;
+em, strong {
+color: purple;
+}
+img {
+display: block;
+margin: 0 auto;
+}
+&lt;&#x2F;style&gt;
+&lt;p&gt;Channel 是异步编程 CSP 模型和 Actor 模型的重要组成部分，是一种用于消息同步的数据结构。Go 语言中的 &lt;code&gt;chan&lt;&#x2F;code&gt; 类型即是一种 channel 的实现。在使用 Rust 进行异步编程的时候也需要使用 channel。然而 Rust 中的 channel 似乎太多了。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
