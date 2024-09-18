@@ -4,8 +4,8 @@ description = "My life, experience and knowledge"
 
 base_url = "https://blog.pg999w.top/"
 compile_sass = true
-generate_feed = true
-feed_filename = "rss.xml"
+generate_feeds = true
+feed_filenames = ["rss.xml"]
 
 theme = "even"
 
@@ -16,6 +16,8 @@ taxonomies = [
 [markdown]
 highlight_code = true
 highlight_theme = "base16-ocean-light"
+
+extra_syntaxes_and_themes = [ "syntaxes" ]
 
 [extra]
 # even configs
