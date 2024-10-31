@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - julia</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/julia/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 22 Jan 2022 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>用 Julia 编写 CUDA 程序</title>
+          <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/julia-cuda/</link>
+          <guid>https://blog.pg999w.top/julia-cuda/</guid>
+          <description xml:base="https://blog.pg999w.top/julia-cuda/">&lt;p&gt;CUDA 本身是一个 C 库，而 CUDA kernel 则需要使用扩展的 C&#x2F;C++ 语法。但 &lt;a href=&quot;https:&#x2F;&#x2F;cuda.juliagpu.org&#x2F;stable&#x2F;&quot;&gt;CUDA.jl&lt;&#x2F;a&gt; 让 Julia CUDA 编程成为可能。然而虽然 CUDA.jl 实现了绝大多数 CUDA 的功能，但其文档仍很不完善。本文补充了一些常见 CUDA 功能在 Julia 中的写法。本文假设读者预先具有 Julia，CUDA，以及 CUDA.jl 的基本知识。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
