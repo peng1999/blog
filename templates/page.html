@@ -4,14 +4,6 @@
     {% include "style.html" %}
 {% endblock css %}
 
-{% block extra_head %}
-{% if page.summary %}
-<meta name='description' content='{{ page.summary | safe | striptags }}'>
-{% else %}
-<meta name='description' content='{{ page.title }}'>
-{% endif %}
-{% endblock extra_head %}
-
 {% block page_after_footer %}
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 

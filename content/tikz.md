@@ -7,7 +7,7 @@ tags = ["latex"]
 
 [Ti*k*Z] 虽然强大，但是也过于复杂。下面尝试绘制下面的图形。
 
-![ellipse](../tikz.svg)
+![ellipse](./tikz.svg)
 
 首先绘制一个直立的图形，再全局旋转。
 

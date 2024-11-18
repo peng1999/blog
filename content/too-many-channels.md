@@ -5,6 +5,10 @@ date = 2022-03-24
 tags = ["programming", "go", "rust"]
 +++
 
+Channel 是异步编程 CSP 模型[^csp]和 Actor 模型的重要组成部分，是一种用于消息同步的数据结构。Go 语言中的 `chan` 类型即是一种 channel 的实现。在使用 Rust 进行异步编程的时候也需要使用 channel。然而 Rust 中的 channel 似乎太多了。
+
+<!-- more -->
+
 <style type="text/css">
 em, strong {
 color: purple;
@@ -14,10 +18,6 @@ display: block;
 margin: 0 auto;
 }
 </style>
-
-Channel 是异步编程 CSP 模型[^csp]和 Actor 模型的重要组成部分，是一种用于消息同步的数据结构。Go 语言中的 `chan` 类型即是一种 channel 的实现。在使用 Rust 进行异步编程的时候也需要使用 channel。然而 Rust 中的 channel 似乎太多了。
-
-<!-- more -->
 
 首先 Rust 标准库 `std::sync::mpsc` 模块中就提供了两种 channel 实现 `channel` 和 `sync_channel`。最流行的 Rust 异步运行时 [tokio] 也在 `tokio::sync` 模块中提供了其自己的 channel 实现，有四种之多。如果我们访问 Lib.rs 上的 [Concurrency] 分类，我们能轻易找到排名第 2 和第 8 的两个专门的 channel 库 crossbeam-channel 和 flume。这两个库分别有上千和上百的公开 crate 依赖。既然在 Go 语言当中，一种 channel 就够了，那在 Rust 中我们为什么需要这么多 channel 呢？
 
@@ -32,7 +32,7 @@ Channel 是异步编程 CSP 模型[^csp]和 Actor 模型的重要组成部分，
 
 在 Go 语言中，并不需要有意避免阻塞一个 goroutine，调度器将会把当前的 CPU 资源分给其他可以继续执行的 goroutine。所以大多数时候简单的 rendezvous channel 就足够用了。但是如果由于种种原因，我们真的需要 channel 永远不要阻塞，这时即使是固定大小的 buffered channel 也不能满足要求，我们需要一个能自动扩容缓冲区的 *unbounded buffered channel*。Go 内置的 `chan` 类型没有提供这样的功能，好在我们可以将两个 renderzvous channel 和一个可扩容的环状缓冲区组合起来，实现一个 unbounded buffer。[chanx] 就是这样的一个实现[^chanx]。
 
-![](rendezvous.drawio.svg)
+![rendezvous](rendezvous.drawio.svg)
 
 查看 chanx 的源代码我们可以看到，其内部使用了两个 `chan`，并为每个 channel 都创建了一个新的 goroutine。这显然带来了不必要的开销。用一种 channel 来实现其他类型的 channel，这当然符合 Go 语言极简主义的哲学，然而其付出的性能代价是 Rust 所不能接受的。所以我们看到 Rust 标准库除了提供类似于 Go `chan` 的 `mpsc::sync_channel`，还另外实现了 unbounded channel 即 `mpsc::channel`。其他 Rust 库的 channel 也基本都提供了 bounded 和 unbounded 变体。
 
@@ -94,7 +94,7 @@ std::process::spawn(|| tx_clone.send(something()));
 
 回过头来考察 Go 语言的 channel，我们发现其 `chan` 类型既可以做 Sender，也可以做 Receiver。`chan` 也可以安全地被克隆，在多个线程中共享。这实际上一个 MPMC channel[^mpmc]。而在 Rust 中，通过限制 `Receiver: !Clone`，我们可以得到一个 MPSC channel。注意虽然 MPMC channel 有多个出口，但任意的消息只能从其中一个出口出去。如果我们需要一个「广播」性质的 channel，我们可以实现一个 MPSC channel 数组，每个消息分别向各个出口发送，也可以直接使用 `tokio::sync::broadcast` 中的 channel。
 
-![](broadcast.drawio.svg)
+![broadcast](broadcast.drawio.svg)
 
 ## Mix all together
 

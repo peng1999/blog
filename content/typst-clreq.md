@@ -5,6 +5,9 @@ date = 2023-07-22
 tags = ["programming", "typst", "typography"]
 +++
 
+Typst 是一个 2023 年初开源的一个排版软件。类似于 LaTeX，它通过纯文本编写源代码，然后通过编译器将源代码转换为排版好的 PDF 文件。虽然目前 Typst 的生态还不如 LaTeX，但是比起 LaTeX，它有一些明显的优势：
+
+<!-- more -->
 <style>
 img {
 max-width: 300px;
@@ -13,9 +16,6 @@ margin: auto;
 }
 </style>
 
-Typst 是一个 2023 年初开源的一个排版软件。类似于 LaTeX，它通过纯文本编写源代码，然后通过编译器将源代码转换为排版好的 PDF 文件。虽然目前 Typst 的生态还不如 LaTeX，但是比起 LaTeX，它有一些明显的优势：
-
-<!-- more -->
 
 - Typst 支持高效的增量编译，可以实现媲美 Markdown 的实时渲染更新。
 - Typst 被设计为一种函数式编程语言，支持变量作用域，高阶函数等现代特性。这使得编程和调试比 LaTeX 轻松很多。
@@ -30,7 +30,7 @@ Typst 原生支持 Unicode，但是由于其作者不懂中文，0.1 版本的 T
 
 <!-- centered figure -->
 <figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/%E6%B8%85%E4%B9%BE%E9%9A%86%E5%B9%B4%E6%AD%A6%E8%8B%B1%E6%AE%BF%E8%81%9A%E7%8F%8D%E7%89%88%E4%B9%A6%E9%A1%B5.JPG" style="height:400px">
+<img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/%E6%B8%85%E4%B9%BE%E9%9A%86%E5%B9%B4%E6%AD%A6%E8%8B%B1%E6%AE%BF%E8%81%9A%E7%8F%8D%E7%89%88%E4%B9%A6%E9%A1%B5.JPG" style="height:400px" alt="清乾隆年间木活字《武英殿聚珍版从书》书页">
 <figcaption style="text-align: center">
 清乾隆年间木活字《武英殿聚珍版从书》书页
 </figcaption>
@@ -99,7 +99,7 @@ Typst 原生支持 Unicode，但是由于其作者不懂中文，0.1 版本的 T
 实际上中文排版中是可以「挤进」而保持良好排版的，那就是不调整汉字，而是使用标点的调整空间来进行调整。
 
 <figure>
-<img src="https://www.w3.org/TR/clreq/images/zh/punctuation-adjustment-space-hans.png" style="max-width: 100%">
+<img src="https://www.w3.org/TR/clreq/images/zh/punctuation-adjustment-space-hans.png" style="max-width: 100%" alt="W3C 文档《中文排版需求》中关于标点调整空间的描述">
 <figcaption style="text-align: center">
 W3C 文档《中文排版需求》中关于标点调整空间的描述
 </figcaption>

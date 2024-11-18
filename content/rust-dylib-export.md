@@ -6,6 +6,12 @@ date = 2024-09-16
 tags = ["rust", "programming"]
 +++
 
+有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 [MWE]。
+
+[MWE]: https://en.wikipedia.org/wiki/Minimal_reproducible_example
+
+<!-- more -->
+
 <style>
 img {
 max-width: 400px;
@@ -14,11 +20,6 @@ margin: auto;
 }
 </style>
 
-有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 [MWE]。
-
-[MWE]: https://en.wikipedia.org/wiki/Minimal_reproducible_example
-
-<!-- more -->
 
 我们首先需要一个 binary 项目（main）和一个 cdylib 项目（liba.so），然后为了使两个项目共享同一个变量，它们依赖同一个 common crate。最终的项目结构如下：
 
