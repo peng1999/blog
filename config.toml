@@ -27,7 +27,6 @@ even_menu = [
     {url = "$BASE_URL/rss.xml", name = "RSS"},
     {url = "$BASE_URL/tags", name = "Tags"},
     {url = "$BASE_URL/about", name = "About"},
-    #{url = "$BASE_URL/nanoblog", name = "Nanoblog"},
 ]
 
 katex_enable = true
