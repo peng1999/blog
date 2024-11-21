@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - perl</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/perl/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sat, 01 Jan 2022 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>用 Perl 做查找替换</title>
+          <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/perl-replace/</link>
+          <guid>https://blog.pg999w.top/perl-replace/</guid>
+          <description xml:base="https://blog.pg999w.top/perl-replace/">&lt;p&gt;现在需要把一篇文章中两个中文字符中的回车给删掉。这时候需要用到支持 Unicode 的正则表达式。这时候我们还是用最强大的字符处理语言 Perl 来搞。命令如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -CSAD -0p -i&lt;&#x2F;span&gt;&lt;span&gt;.bak&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -e &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;(\p{category=Po}|\p{sc=Han})\n *(\p{sc=Han})&#x2F;$1$2&#x2F;gms&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; file.md
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果不涉及 Unicode 处理，可以不用加 &lt;code&gt;-CSAD&lt;&#x2F;code&gt;，如果处理不跨行，可以不用 &lt;code&gt;-0&lt;&#x2F;code&gt;，如果不需要备份文件，可以删去 &lt;code&gt;.bak&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Perl 进制转换</title>
+          <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/perl-hex/</link>
+          <guid>https://blog.pg999w.top/perl-hex/</guid>
+          <description xml:base="https://blog.pg999w.top/perl-hex/">&lt;p&gt;现在需要把一堆十进制数转换为二进制数，在 Vim 里可以用 &lt;code&gt;:&#x27;&amp;lt;,&#x27;&amp;gt;!command&lt;&#x2F;code&gt; 来做转换。但是我发现常见的行处理程序 &lt;code&gt;awk&lt;&#x2F;code&gt; 根本搞不定进制转换，所以还是用最强大的字符处理语言 Perl 来搞。命令如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%032b\n&amp;quot;, $_)&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果输入是十六进制呢？加个 &lt;code&gt;hex&lt;&#x2F;code&gt; 函数就行：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%032b\n&amp;quot;, hex($_))&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果一行有多个字段，只想转换第二个呢？这就要用到 &lt;code&gt;-a&lt;&#x2F;code&gt; 参数，此时 &lt;code&gt;$_&lt;&#x2F;code&gt; 变为数组 &lt;code&gt;@F&lt;&#x2F;code&gt;：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ane &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%s\t%032b\n&amp;quot;, @F[0], hex(@F[1]))&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后注意在 Vim 中 &lt;code&gt;%&lt;&#x2F;code&gt; 符号需要转义。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

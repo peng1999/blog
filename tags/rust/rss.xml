@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - rust</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/rust/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>可执行文件与动态库共享全局变量</title>
+          <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-dylib-export/</link>
+          <guid>https://blog.pg999w.top/rust-dylib-export/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-dylib-export/">&lt;p&gt;有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Minimal_reproducible_example&quot;&gt;MWE&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 和 C++ 的对象生命管理</title>
+          <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-cpp-object-management/</link>
+          <guid>https://blog.pg999w.top/rust-cpp-object-management/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-cpp-object-management/">&lt;p&gt;Rust 和 C++ 的对象都是值语义，都采用了 RAII 惯用法。所以他们需要处理类似的对象生命周期问题：需要专门的代码来处理对象的初始化，复制和析构。下面进行一个比较，我们能够看到两种语言之间内在的对称性。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Nix 管理交叉编译 Rust 项目的环境</title>
+          <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/nix-smartcross/</link>
+          <guid>https://blog.pg999w.top/nix-smartcross/</guid>
+          <description xml:base="https://blog.pg999w.top/nix-smartcross/">&lt;p&gt;SmartCross 项目的介绍见&lt;a href=&quot;https:&#x2F;&#x2F;blog.t123yh.xyz:2&#x2F;index.php&#x2F;archives&#x2F;1077&quot;&gt;这里&lt;&#x2F;a&gt;。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 &lt;a href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;Nix&lt;&#x2F;a&gt; 表达式来管理该项目的环境。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Too many channels in Rust but only one in Go</title>
+          <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/too-many-channels/</link>
+          <guid>https://blog.pg999w.top/too-many-channels/</guid>
+          <description xml:base="https://blog.pg999w.top/too-many-channels/">&lt;p&gt;Channel 是异步编程 CSP 模型和 Actor 模型的重要组成部分，是一种用于消息同步的数据结构。Go 语言中的 &lt;code&gt;chan&lt;&#x2F;code&gt; 类型即是一种 channel 的实现。在使用 Rust 进行异步编程的时候也需要使用 channel。然而 Rust 中的 channel 似乎太多了。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 编译到 musl target 的踩坑记录</title>
+          <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-musl-target/</link>
+          <guid>https://blog.pg999w.top/rust-musl-target/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-musl-target/">&lt;p&gt;Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运行时，而不同发行版之间的 libc 可能会有兼容性问题。如果想要把一次编译好的可执行文件放到不同的 Linux 发行版上面去跑，最好采用 x86_64-unknown-linux-musl 目标进行静态编译。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>从 C++ 的错误处理说起</title>
+          <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/c-p0709/</link>
+          <guid>https://blog.pg999w.top/c-p0709/</guid>
+          <description xml:base="https://blog.pg999w.top/c-p0709/">&lt;p&gt;&lt;strong&gt;错误处理&lt;&#x2F;strong&gt;是一个非常重要的软件工程问题。对软件中出现的非致命错误的不当处理，是几乎所有的灾难性系统故障的诱因。 编程语言往往需要提供一些用于错误处理的语言设施，这些设施反过来会影响项目中错误处理的方式。不同的语言错误处理方式不同。例如 Java 采用基于 try-throw-catch 语法的异常机制，而 Go 语言则选择手动检测函数返回的 &lt;code&gt;error&lt;&#x2F;code&gt; 对象。一个令人惊讶的事实是，C++ 到现在还没有一个被广泛接受的错误处理方式。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 的指针别名优化</title>
+          <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/csarpp-opt/</link>
+          <guid>https://blog.pg999w.top/csarpp-opt/</guid>
+          <description xml:base="https://blog.pg999w.top/csarpp-opt/">&lt;p&gt;本文研究了基于 Rust 具有的所有权语义的一些优化。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+      <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6VKH78QR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-EC6VKH78QR');
+        </script>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+      <meta name='description' content='有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 MWE。
+'>
+      
+    
+
+      <title>pg999w&#x27;s blog - 可执行文件与动态库共享全局变量</title>
+
+      
+          
+          <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.pg999w.top/rss.xml">
+          
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+    <link rel="stylesheet" href="https://blog.pg999w.top/site.css">
+<link rel="stylesheet" href="https://blog.pg999w.top/custom.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+
+
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;" class="logo">pg999w’s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                            RSS
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;">pg999w’s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                                    RSS
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;rust-dylib-export&#x2F;">可执行文件与动态库共享全局变量</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2024-09-16</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 <a href="https://en.wikipedia.org/wiki/Minimal_reproducible_example">MWE</a>。</p>
+<span id="continue-reading"></span><style>
+img {
+max-width: 400px;
+display: block;
+margin: auto;
+}
+</style>
+<p>我们首先需要一个 binary 项目（main）和一个 cdylib 项目（liba.so），然后为了使两个项目共享同一个变量，它们依赖同一个 common crate。最终的项目结构如下：</p>
+<p><img src="https://blog.pg999w.top/rust-dylib-export/project.svg" alt="project structure" /></p>
+<p>这里的 dlopen 使用 <a href="https://lib.rs/crates/libloading">libloading</a> 库来实现。main 的代码如下：</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::sync::atomic::Ordering;
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>common::</span><span style="color:#d08770;">FOO</span><span>;
+</span><span style="color:#b48ead;">use </span><span>libloading::Library;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">unsafe </span><span>{
+</span><span>        </span><span style="color:#a7adba;">// Modify FOO in the main binary
+</span><span>        </span><span style="color:#d08770;">FOO</span><span>.</span><span style="color:#96b5b4;">store</span><span>(</span><span style="color:#d08770;">10</span><span>, Ordering::SeqCst);
+</span><span>        println!(
+</span><span>            &quot;</span><span style="color:#a3be8c;">FOO after main modification: </span><span style="color:#d08770;">{}</span><span>&quot;,
+</span><span>            </span><span style="color:#d08770;">FOO</span><span>.</span><span style="color:#96b5b4;">load</span><span>(Ordering::Relaxed)
+</span><span>        );
+</span><span>
+</span><span>        </span><span style="color:#a7adba;">// Load and call the function from `liba` to modify FOO
+</span><span>        </span><span style="color:#b48ead;">let</span><span> lib_b = Library::new(&quot;</span><span style="color:#a3be8c;">liba.so</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let</span><span> modify_foo = lib_b.get::&lt;</span><span style="color:#b48ead;">extern </span><span>&quot;</span><span style="color:#a3be8c;">C</span><span>&quot; </span><span style="color:#b48ead;">fn</span><span>()&gt;(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">modify_foo</span><span style="color:#96b5b4;">\0</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#96b5b4;">modify_foo</span><span>();
+</span><span>
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">FOO after b modification: </span><span style="color:#d08770;">{}</span><span>&quot;, </span><span style="color:#d08770;">FOO</span><span>.</span><span style="color:#96b5b4;">load</span><span>(Ordering::Relaxed));
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>运行代码，发现 <code>modify_foo</code> 并不起作用，这也就意味着两个项目的 <code>FOO</code> 并不是同一个。</p>
+<pre data-lang="console" style="background-color:#eff1f5;color:#4f5b66;" class="language-console "><code class="language-console" data-lang="console"><span>$ </span><span style="color:#bf616a;">cargo</span><span> run
+</span><span>    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s
+</span><span>     Running `target/debug/rust-dylib-export`
+</span><span>FOO after main modification: 10
+</span><span>FOO after b modification: 10
+</span></code></pre>
+<p>通过 <code>LD_DEBUG</code> 我们可以看到符号加载的情况</p>
+<pre data-lang="console" style="background-color:#eff1f5;color:#4f5b66;" class="language-console "><code class="language-console" data-lang="console"><span>$ </span><span style="color:#bf616a;">LD_DEBUG</span><span>=</span><span style="color:#a3be8c;">symbols </span><span style="color:#bf616a;">cargo</span><span> run </span><span style="color:#d08770;">2</span><span>&gt;&amp;</span><span style="color:#d08770;">1 </span><span>| </span><span style="color:#bf616a;">rg</span><span> FOO
+</span><span>FOO after main modification: 10
+</span><span>    135603:     symbol=FOO;  lookup in file=target/debug/rust-dylib-export [0]
+</span><span>    135603:     symbol=FOO;  lookup in file=/usr/lib/libgcc_s.so.1 [0]
+</span><span>    135603:     symbol=FOO;  lookup in file=/usr/lib/libc.so.6 [0]
+</span><span>    135603:     symbol=FOO;  lookup in file=/lib64/ld-linux-x86-64.so.2 [0]
+</span><span>    135603:     symbol=FOO;  lookup in file=[...]/target/debug/deps/liba.so [0]
+</span><span>FOO after b modification: 10
+</span></code></pre>
+<p>说明 <code>FOO</code> 是在加载 <code>liba.so</code> 之后才被加载的。
+理想状态下，main 和 liba 中都有一个 <code>FOO</code> 符号，这个符号会在 main 加载的时候加载。而 liba 加载时，根据 ELF 的符号抢占机制，liba 的 <code>FOO</code> 符号直接被定位到和 main 的 <code>FOO</code> 相同的位置。
+为什么 main 函数被加载的时候没有加载 <code>FOO</code> 符号呢？我首先怀疑是符号的 Visibility 被设置为了 Protected。</p>
+<p>检查一下符号：</p>
+<pre data-lang="console" style="background-color:#eff1f5;color:#4f5b66;" class="language-console "><code class="language-console" data-lang="console"><span>$ </span><span style="color:#bf616a;">readelf -sWC</span><span> target/debug/liba.so | </span><span style="color:#bf616a;">rg </span><span>&#39;</span><span style="color:#a3be8c;">Symbol table|Num:|FOO</span><span>&#39;
+</span><span>Symbol table &#39;.dynsym&#39; contains 53 entries:
+</span><span>   Num:    Value          Size Type    Bind   Vis      Ndx Name
+</span><span>    52: 000000000004f064     4 OBJECT  GLOBAL DEFAULT   24 FOO
+</span><span>Symbol table &#39;.symtab&#39; contains 639 entries:
+</span><span>   Num:    Value          Size Type    Bind   Vis      Ndx Name
+</span><span>   610: 000000000004f064     4 OBJECT  GLOBAL DEFAULT   24 FOO
+</span><span>$ </span><span style="color:#bf616a;">readelf -sWC</span><span> target/debug/rust-dylib-export | </span><span style="color:#bf616a;">rg </span><span>&#39;</span><span style="color:#a3be8c;">Symbol table|Num:|FOO</span><span>&#39;
+</span><span>Symbol table &#39;.dynsym&#39; contains 71 entries:
+</span><span>   Num:    Value          Size Type    Bind   Vis      Ndx Name
+</span><span>Symbol table &#39;.symtab&#39; contains 936 entries:
+</span><span>   Num:    Value          Size Type    Bind   Vis      Ndx Name
+</span><span>   734: 000000000005d064     4 OBJECT  GLOBAL DEFAULT   28 FOO
+</span></code></pre>
+<p>我们发现 Visibility 并没有问题，问题在于 main 的 <code>.dynsym</code> 表中没有 <code>FOO</code> 这个符号。这样 main 就无法抢占后面加载模块的 <code>FOO</code> 符号。知道了症结，问题就好解决了。容易查到 <code>ld</code> 默认不会导出可执行文件的符号到 <code>.dynsym</code> 表中，使用参数 <code>--export-dynamic</code> 即可以覆盖这一行为。</p>
+<p>在 Rust 中有两种方式设置 linker 参数：Cargo config，和 <code>build.rs</code>。由于 Cargo config 是项目全局的，这里我们使用 <code>build.rs</code> 仅针对 main 项目修改链接参数：</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">cargo:rustc-link-arg=-Wl,--export-dynamic</span><span>&quot;);
+</span><span>}
+</span></code></pre>
+<p>这样我们的程序就可以按预期执行了：</p>
+<pre data-lang="console" style="background-color:#eff1f5;color:#4f5b66;" class="language-console "><code class="language-console" data-lang="console"><span>$ </span><span style="color:#bf616a;">cargo</span><span> run
+</span><span>    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.00s
+</span><span>     Running `target/debug/rust-dylib-export`
+</span><span>FOO after main modification: 10
+</span><span>FOO after b modification: 1
+</span></code></pre>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://blog.pg999w.top/tags/rust/">#rust</a>
+                    
+                        <a href="https://blog.pg999w.top/tags/programming/">#programming</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;typst-latin-modern&#x2F;">在 Typst 中使用 Latin Modern 家族 ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<hr />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
+<br />
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">可执行文件与动态库共享全局变量</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;rust-dylib-export&#x2F;" property="cc:attributionName" rel="cc:attributionURL">Peng Guanwen</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。
+
+<br />
+
+<span id="busuanzi_container_site_uv" style="display:none">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<span id="busuanzi_container_page_pv" style="display:none">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://blog.pg999w.top/even.js" ></script>
+      
+    </body>
+
+</html>

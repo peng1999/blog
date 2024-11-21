@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+      <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6VKH78QR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-EC6VKH78QR');
+        </script>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+      <meta name='description' content='Rust 和 C++ 的对象都是值语义，都采用了 RAII 惯用法。所以他们需要处理类似的对象生命周期问题：需要专门的代码来处理对象的初始化，复制和析构。下面进行一个比较，我们能够看到两种语言之间内在的对称性。
+'>
+      
+    
+
+      <title>pg999w&#x27;s blog - Rust 和 C++ 的对象生命管理</title>
+
+      
+          
+          <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.pg999w.top/rss.xml">
+          
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+    <link rel="stylesheet" href="https://blog.pg999w.top/site.css">
+<link rel="stylesheet" href="https://blog.pg999w.top/custom.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+
+
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;" class="logo">pg999w’s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                            RSS
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;">pg999w’s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                                    RSS
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#pu-tong-gou-zao" class="toc-link">普通构造</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#fu-zhi-gou-zao" class="toc-link">复制构造</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#yi-dong-gou-zao" class="toc-link">移动构造</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#fu-zhi-cao-zuo-fu" class="toc-link">赋值操作符</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#xi-gou-han-shu" class="toc-link">析构函数</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/rust-cpp-object-management/#zong-jie" class="toc-link">总结</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;rust-cpp-object-management&#x2F;">Rust 和 C++ 的对象生命管理</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2023-11-14</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>Rust 和 C++ 的对象都是值语义，都采用了 RAII 惯用法。所以他们需要处理类似的对象生命周期问题：需要专门的代码来处理对象的初始化，复制和析构。下面进行一个比较，我们能够看到两种语言之间内在的对称性。</p>
+<span id="continue-reading"></span><h1 id="pu-tong-gou-zao">普通构造</h1>
+<p>每个对象都需要一个初始化过程，但 Rust 没有构造函数的概念。没有类继承概念的 Rust 可以利用 <strong>struct 表达式</strong>初始化每个对象。这类似于 C++ <strong>聚合初始化</strong>。</p>
+<p>Rust:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>S { </span><span style="color:#bf616a;">a</span><span>: </span><span style="color:#b48ead;">i32</span><span>, </span><span style="color:#bf616a;">b</span><span>: </span><span style="color:#b48ead;">i32 </span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let</span><span> s = S { a: </span><span style="color:#d08770;">1</span><span>, b: </span><span style="color:#d08770;">2 </span><span>};
+</span></code></pre>
+<p>C++:</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S { int32_t a; int32_t b; };
+</span><span>
+</span><span style="color:#b48ead;">auto</span><span> s = </span><span style="color:#bf616a;">S </span><span>{ .</span><span style="color:#bf616a;">a </span><span>= </span><span style="color:#d08770;">1</span><span>, .</span><span style="color:#bf616a;">b </span><span>= </span><span style="color:#d08770;">2 </span><span>};
+</span></code></pre>
+<p>而其他形式的初始化封装就由函数来解决，而不是像 C++ 专门引入了构造函数的概念。</p>
+<p>Rust:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">impl </span><span>S {
+</span><span>  </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">new</span><span>(</span><span style="color:#bf616a;">a</span><span>: </span><span style="color:#b48ead;">i32</span><span>) -&gt; S {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Do other thing!</span><span>&quot;)
+</span><span>    S { a, b: a + </span><span style="color:#d08770;">1 </span><span>}
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>C++:</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S {
+</span><span>  </span><span style="color:#a7adba;">// ...
+</span><span>  </span><span style="color:#8fa1b3;">S</span><span>(int32_t </span><span style="color:#bf616a;">a</span><span>) : </span><span style="color:#bf616a;">a</span><span>{a}, </span><span style="color:#bf616a;">b</span><span>{a + </span><span style="color:#d08770;">1</span><span>} {
+</span><span>    std::</span><span style="color:#bf616a;">println</span><span>(&quot;</span><span style="color:#a3be8c;">Do other thing!</span><span>&quot;);
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>C++ 可以生成默认构造函数 <code>T::T()</code>。Rust 可以生成普通函数 <code>fn Default::default() -&gt; T</code>。</p>
+<p>Rust:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Default)]
+</span><span style="color:#b48ead;">struct </span><span>S { </span><span style="color:#a7adba;">/*...*/ </span><span>}
+</span><span>
+</span><span style="color:#b48ead;">let</span><span> s = S::default();
+</span></code></pre>
+<p>C++:</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S {
+</span><span>  </span><span style="color:#8fa1b3;">S</span><span>() = </span><span style="color:#b48ead;">default</span><span>;
+</span><span>};
+</span><span>
+</span><span style="color:#b48ead;">auto</span><span> s = </span><span style="color:#bf616a;">S</span><span>{};
+</span></code></pre>
+<h1 id="fu-zhi-gou-zao">复制构造</h1>
+<p>Rust 的非 POD 对象默认不能复制。实现了 <code>Clone</code> trait 的对象就能复制了。当然 <code>Clone</code> 可以默认生成。</p>
+<p>Rust:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">derive</span><span>(Clone)]
+</span><span style="color:#b48ead;">struct </span><span>S {}
+</span><span>
+</span><span style="color:#b48ead;">let</span><span> s1 = S::new();
+</span><span>s1.</span><span style="color:#96b5b4;">clone</span><span>(); </span><span style="color:#a7adba;">// copy to a temporary
+</span></code></pre>
+<p>C++:</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S {
+</span><span>   </span><span style="color:#8fa1b3;">S</span><span>(</span><span style="color:#b48ead;">const</span><span> S&amp;) = </span><span style="color:#b48ead;">default</span><span>;
+</span><span>};
+</span><span>
+</span><span style="color:#b48ead;">auto</span><span> s1 = </span><span style="color:#bf616a;">S</span><span>{};
+</span><span style="color:#b48ead;">auto</span><span> s2 = s1; </span><span style="color:#a7adba;">// no temporary, only s1 and s2
+</span></code></pre>
+<h1 id="yi-dong-gou-zao">移动构造</h1>
+<p>注意到上面例子细微的对称性破缺：在 C++ 中，<code>auto s2 = s1;</code> 是单条初始化语句，而在 Rust 中，<code>let s2 = s1.clone()</code> 涉及到了两个操作：<code>s1.clone()</code> 复制了 <code>s1</code>，并返回了一个临时对象；临时对象被移动进 s2 中完成初始化。所以在上面的 Rust 例子中我只写了单个 <code>s1.clone()</code> 表达式。</p>
+<p>这里涉及到 Rust 移动语义与 C++ 最大的不同：<strong>Rust 中所有对象都可移动，移动总是高效的，移动不会发生任何可观测的副作用。</strong> Rust 的移动操作是默认发生的，总是可以被理解为对象的按字节浅复制。（没错，Rust 中的移动<em>在语义上</em>实际上是复制）</p>
+<p>而 C++ 的移动，套用 <em>Effective Modern C++, Item 29</em> 的话来说：<strong>移动操作可能不存在，成本高，或未被使用。</strong></p>
+<p>之所以会是如此，是因为 C++ 中对象被移动后仍然可用，仍然会被调用构造函数。在 C++ 中必须要给被移动走的对象设置一个空状态。而 Rust 则没有这个问题。</p>
+<p>这两个语言的移动区别如此之大，以至于本节无法给出有意义的代码对比。</p>
+<h1 id="fu-zhi-cao-zuo-fu">赋值操作符</h1>
+<p>Rust 的赋值操作符总是移动。神奇的是，C++ 中其实有类似的对应物，那就是 by-value assignment operator。请看：</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S {
+</span><span>  </span><span style="color:#a7adba;">// constructors...
+</span><span>  </span><span style="color:#b48ead;">void </span><span style="color:#8fa1b3;">operator=</span><span>(S </span><span style="color:#bf616a;">rhs</span><span>) { </span><span style="color:#a7adba;">// by value
+</span><span>    </span><span style="color:#bf616a;">swap</span><span>(rhs, *</span><span style="color:#bf616a;">this</span><span>);
+</span><span>  }
+</span><span>}
+</span><span>
+</span><span>S a, b;
+</span><span>a = b; </span><span style="color:#a7adba;">// stmt1
+</span><span>a = std::</span><span style="color:#bf616a;">move</span><span>(b); </span><span style="color:#a7adba;">// stmt2
+</span></code></pre>
+<p>这里返回值为 <code>void</code> 是为了和 Rust 保持对称。这里使用 copy-and-swap 的 C++ 技巧，将赋值运算符巧妙地转发到了构造函数，同时这一个赋值操作符重栽同时替代了复制和移动操作符重载。<code>swap</code> 一般可以由简单的 memcpy 实现。现在看看 stmt1 发生的复制和移动：</p>
+<ul>
+<li>b -&gt; rhs，一次复制</li>
+<li>rhs -&gt; *this，一次浅复制</li>
+</ul>
+<p>而 stmt2：</p>
+<ul>
+<li>b -&gt; rhs，一次移动</li>
+<li>rhs -&gt; *this，一次浅复制</li>
+</ul>
+<p>而对应的 Rust 代码：</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span>a = b.</span><span style="color:#96b5b4;">clone</span><span>(); </span><span style="color:#a7adba;">// stmt1
+</span><span>a = b; </span><span style="color:#a7adba;">// stmt2
+</span></code></pre>
+<p>stmt1 发生了一次复制和一次移动，stmt2 发生一次移动。Rust 的移动基本相当于 C++ 的浅复制。我们可以看到对于复制操作，两种语言所具有的对称性。Rust 正是使用这种机制为所有对象实现了默认且不可重载的赋值操作。</p>
+<h1 id="xi-gou-han-shu">析构函数</h1>
+<p>这一段比较平凡。用户可以提供自己的析构函数，也可以用默认的。直接看代码：</p>
+<p>Rust:</p>
+<pre data-lang="rust" style="background-color:#eff1f5;color:#4f5b66;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">impl </span><span>Drop </span><span style="color:#b48ead;">for </span><span>S {
+</span><span>  </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">drop</span><span>(&amp;</span><span style="color:#b48ead;">mut </span><span style="color:#bf616a;">self</span><span>) {
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Doing something</span><span>&quot;);
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<p>C++:</p>
+<pre data-lang="c++" style="background-color:#eff1f5;color:#4f5b66;" class="language-c++ "><code class="language-c++" data-lang="c++"><span style="color:#b48ead;">struct </span><span>S {
+</span><span>  </span><span style="color:#a7adba;">// ...
+</span><span>  </span><span style="color:#8fa1b3;">~S</span><span>() {
+</span><span>    std::</span><span style="color:#bf616a;">println</span><span>(&quot;</span><span style="color:#a3be8c;">Doing something</span><span>&quot;);
+</span><span>  }
+</span><span>}
+</span></code></pre>
+<h1 id="zong-jie">总结</h1>
+<p>总的看来，Rust 在没有历史包袱的情况下，得以采取更加简单的机制组合策略来实现同样的功能。而 C++ 则倾向于提供更高的定制性。下面是一个简单的对照表：</p>
+<table><thead><tr><th>C++</th><th>Rust</th></tr></thead><tbody>
+<tr><td>构造函数</td><td>普通函数</td></tr>
+<tr><td>默认构造</td><td><code>Default</code></td></tr>
+<tr><td>复制构造</td><td><code>Clone</code></td></tr>
+<tr><td>移动构造</td><td>默认机制</td></tr>
+<tr><td>赋值操作符</td><td>默认机制</td></tr>
+<tr><td>析构</td><td><code>Drop</code></td></tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://blog.pg999w.top/tags/rust/">#rust</a>
+                    
+                        <a href="https://blog.pg999w.top/tags/cpp/">#cpp</a>
+                    
+                        <a href="https://blog.pg999w.top/tags/programming/">#programming</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;movie-2023&#x2F;">‹ 2023 个人年度电影</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;typst-clreq&#x2F;">为 Typst 添加中文排版支持 ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<hr />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
+<br />
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Rust 和 C++ 的对象生命管理</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;rust-cpp-object-management&#x2F;" property="cc:attributionName" rel="cc:attributionURL">Peng Guanwen</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。
+
+<br />
+
+<span id="busuanzi_container_site_uv" style="display:none">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<span id="busuanzi_container_page_pv" style="display:none">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://blog.pg999w.top/even.js" ></script>
+      
+    </body>
+
+</html>

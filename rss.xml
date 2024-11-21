@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Mon, 16 Sep 2024 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>可执行文件与动态库共享全局变量</title>
+          <pubDate>Mon, 16 Sep 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-dylib-export/</link>
+          <guid>https://blog.pg999w.top/rust-dylib-export/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-dylib-export/">&lt;p&gt;有时候我们会希望通过 dlopen 来加载一个动态链接库，并且在主程序中和库中访问同一个全局变量。下面用 Rust 来实现一个 &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Minimal_reproducible_example&quot;&gt;MWE&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>在 Typst 中使用 Latin Modern 家族</title>
+          <pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/typst-latin-modern/</link>
+          <guid>https://blog.pg999w.top/typst-latin-modern/</guid>
+          <description xml:base="https://blog.pg999w.top/typst-latin-modern/">&lt;p&gt;高德纳在开发 TeX 时，也设计了一套字体叫 Computer Modern，作为 TeX 的默认字体。然而当时字体是采用 METAFONT 制作的，和当今的字体标准 OpenType 并不兼容。Latin Modern 通过技术手段将 Computer Modern 转换到了 OpenType 格式，并且做了扩充和微调。所以我们在 Typst 中也可以调用 Latin Modern 字体。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>2023 个人年度电影</title>
+          <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/movie-2023/</link>
+          <guid>https://blog.pg999w.top/movie-2023/</guid>
+          <description xml:base="https://blog.pg999w.top/movie-2023/">&lt;p&gt;2022 年由于疫情和学业的各种原因，我观看的电影实在太少，以至于放弃了当年的年度电影评选。2023 年，在完全恢复了正常的生活秩序后，观影频次有所提高。本年我一共看了 40 部电影，其中有 9 部是动画片。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 和 C++ 的对象生命管理</title>
+          <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-cpp-object-management/</link>
+          <guid>https://blog.pg999w.top/rust-cpp-object-management/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-cpp-object-management/">&lt;p&gt;Rust 和 C++ 的对象都是值语义，都采用了 RAII 惯用法。所以他们需要处理类似的对象生命周期问题：需要专门的代码来处理对象的初始化，复制和析构。下面进行一个比较，我们能够看到两种语言之间内在的对称性。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>为 Typst 添加中文排版支持</title>
+          <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/typst-clreq/</link>
+          <guid>https://blog.pg999w.top/typst-clreq/</guid>
+          <description xml:base="https://blog.pg999w.top/typst-clreq/">&lt;p&gt;Typst 是一个 2023 年初开源的一个排版软件。类似于 LaTeX，它通过纯文本编写源代码，然后通过编译器将源代码转换为排版好的 PDF 文件。虽然目前 Typst 的生态还不如 LaTeX，但是比起 LaTeX，它有一些明显的优势：&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>在中国大陆境内编辑维基百科</title>
+          <pubDate>Fri, 27 Jan 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/wiki-exemption/</link>
+          <guid>https://blog.pg999w.top/wiki-exemption/</guid>
+          <description xml:base="https://blog.pg999w.top/wiki-exemption/">&lt;p&gt;由于 GFW 的存在，在中国境内使用维基百科必须要透过代理进行访问。然而为了避免恶意破坏，维基百科禁止匿名代理服务器修改词条。如果你的代理不幸处于封禁的 IP 段，那么将会得到类似于这样的警告：&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Nix 管理交叉编译 Rust 项目的环境</title>
+          <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/nix-smartcross/</link>
+          <guid>https://blog.pg999w.top/nix-smartcross/</guid>
+          <description xml:base="https://blog.pg999w.top/nix-smartcross/">&lt;p&gt;SmartCross 项目的介绍见&lt;a href=&quot;https:&#x2F;&#x2F;blog.t123yh.xyz:2&#x2F;index.php&#x2F;archives&#x2F;1077&quot;&gt;这里&lt;&#x2F;a&gt;。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 &lt;a href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;Nix&lt;&#x2F;a&gt; 表达式来管理该项目的环境。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Too many channels in Rust but only one in Go</title>
+          <pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/too-many-channels/</link>
+          <guid>https://blog.pg999w.top/too-many-channels/</guid>
+          <description xml:base="https://blog.pg999w.top/too-many-channels/">&lt;p&gt;Channel 是异步编程 CSP 模型和 Actor 模型的重要组成部分，是一种用于消息同步的数据结构。Go 语言中的 &lt;code&gt;chan&lt;&#x2F;code&gt; 类型即是一种 channel 的实现。在使用 Rust 进行异步编程的时候也需要使用 channel。然而 Rust 中的 channel 似乎太多了。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>2021 个人年度电影</title>
+          <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/movie-2021/</link>
+          <guid>https://blog.pg999w.top/movie-2021/</guid>
+          <description xml:base="https://blog.pg999w.top/movie-2021/">&lt;p&gt;今年的年度电影规则和去年一样。虽然名单在元旦时就确定了，可是由于各种原因，这篇博客文章拖到了春节最后一天才写出来。值得一提的是所有入选电影全部是 2021 年新片。一方面当然是我接触新片更频繁了，另一方面也从侧面看出业界确实在复苏。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2021-nian-du-dian-ying&quot;&gt;2021 年度电影&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 1&lt;&#x2F;strong&gt; 《沙丘（Dune）》2021 丹尼斯·维伦纽瓦&lt;&#x2F;p&gt;
+&lt;p&gt;如果说2021年还有什么电影值得人们非进电影院不可，那首先应当是《沙丘》。如果2021年还有什么在电影体现了一流的工业水准，那一定有《沙丘》。如果2021年有什么值得一提的科幻片，那只能是《沙丘》。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 2&lt;&#x2F;strong&gt; 《花束般的恋爱（花束みたいな恋をした）》2021 土井裕泰&lt;&#x2F;p&gt;
+&lt;p&gt;我们和剧中的主人公的境况当然千差万别，但是步入社会的大学生，为了现实的压力而终于放弃了曾经热爱的东西——这种恐惧确实传达给我了。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 3&lt;&#x2F;strong&gt; 《酷爱电影的庞波小姐（映画大好きポンポさん）》2021 平尾隆之&lt;&#x2F;p&gt;
+&lt;p&gt;我关注的影评人给这部电影打了不少低分。可是在我这里，尽管剧情确实有值得严肃的影评人诟病之处，但形式上的趣味压倒了一切。这部动画里一切外在的形式，包括突出的剪辑点，反复的插叙，以及精确控制的时间，无不体现了导演「剪辑使电影变得有趣」的理念。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2021-nian-du-yuan-sheng-yin-le&quot;&gt;2021 年度原声音乐&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《倒数时刻（Tick, Tick… boom!）》2021 艺术家：Janason Larson&lt;&#x2F;p&gt;
+&lt;p&gt;选择音乐剧改编电影似乎有点作弊。不过就原作中的几首经典歌曲来说，比起原版的音乐剧，我更喜欢这张原声带的版本。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;wang-nian-nian-du-dian-ying&quot;&gt;往年年度电影&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;movie-2020&#x2F;&quot;&gt;2020 个人年度电影&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;movie-2019&#x2F;&quot;&gt;2019 个人年度电影&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Julia 编写 CUDA 程序</title>
+          <pubDate>Sat, 22 Jan 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/julia-cuda/</link>
+          <guid>https://blog.pg999w.top/julia-cuda/</guid>
+          <description xml:base="https://blog.pg999w.top/julia-cuda/">&lt;p&gt;CUDA 本身是一个 C 库，而 CUDA kernel 则需要使用扩展的 C&#x2F;C++ 语法。但 &lt;a href=&quot;https:&#x2F;&#x2F;cuda.juliagpu.org&#x2F;stable&#x2F;&quot;&gt;CUDA.jl&lt;&#x2F;a&gt; 让 Julia CUDA 编程成为可能。然而虽然 CUDA.jl 实现了绝大多数 CUDA 的功能，但其文档仍很不完善。本文补充了一些常见 CUDA 功能在 Julia 中的写法。本文假设读者预先具有 Julia，CUDA，以及 CUDA.jl 的基本知识。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Perl 做查找替换</title>
+          <pubDate>Sat, 01 Jan 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/perl-replace/</link>
+          <guid>https://blog.pg999w.top/perl-replace/</guid>
+          <description xml:base="https://blog.pg999w.top/perl-replace/">&lt;p&gt;现在需要把一篇文章中两个中文字符中的回车给删掉。这时候需要用到支持 Unicode 的正则表达式。这时候我们还是用最强大的字符处理语言 Perl 来搞。命令如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -CSAD -0p -i&lt;&#x2F;span&gt;&lt;span&gt;.bak&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -e &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s&#x2F;(\p{category=Po}|\p{sc=Han})\n *(\p{sc=Han})&#x2F;$1$2&#x2F;gms&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; file.md
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果不涉及 Unicode 处理，可以不用加 &lt;code&gt;-CSAD&lt;&#x2F;code&gt;，如果处理不跨行，可以不用 &lt;code&gt;-0&lt;&#x2F;code&gt;，如果不需要备份文件，可以删去 &lt;code&gt;.bak&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>保研经历总结</title>
+          <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/baoyan/</link>
+          <guid>https://blog.pg999w.top/baoyan/</guid>
+          <description xml:base="https://blog.pg999w.top/baoyan/">&lt;p&gt;2020年保研算是告一段落了。因为基地里面要组织给学弟学妹的分享活动，借此机会正好来写一篇总结。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 编译到 musl target 的踩坑记录</title>
+          <pubDate>Sun, 30 May 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-musl-target/</link>
+          <guid>https://blog.pg999w.top/rust-musl-target/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-musl-target/">&lt;p&gt;Rust 在 x86_64-unknown-linux-gnu 目标下默认会动态链接到系统 C 运行时，而不同发行版之间的 libc 可能会有兼容性问题。如果想要把一次编译好的可执行文件放到不同的 Linux 发行版上面去跑，最好采用 x86_64-unknown-linux-musl 目标进行静态编译。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>2020 个人年度电影</title>
+          <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/movie-2020/</link>
+          <guid>https://blog.pg999w.top/movie-2020/</guid>
+          <description xml:base="https://blog.pg999w.top/movie-2020/">&lt;h2 id=&quot;gui-ze&quot;&gt;规则&lt;&#x2F;h2&gt;
+&lt;p&gt;今年是第二年自娱自乐的评选了。同样基本按照去年的规则来，但是稍有修订。入选的电影满足如下条件：&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;是本年新观看的电影。&lt;&#x2F;li&gt;
+&lt;li&gt;包含观看的资源片，不限于院线片。&lt;&#x2F;li&gt;
+&lt;li&gt;仅以个人喜好程度排序。&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;另设「年度原声音乐」一个名额，范围是今年听到的电影原声带专辑。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;2020-nian-du-dian-ying&quot;&gt;2020 年度电影&lt;&#x2F;h2&gt;
+&lt;p&gt;今年首次出现了院线片。第三名本来是波兰斯基的《我控诉（J&#x27;accuse）》，可是2020年的最后一天在影院看了《心灵奇旅》，大概是受了氛围的影响，我临时改变了主意。&lt;&#x2F;p&gt;
+&lt;p&gt;本次入围前三名的有两部动画电影。但是令人担忧的是，高产优质作品的京都动画受火灾的影响，前途未卜；而皮克斯在当下流量为王的流媒体时代，已经开始受到资本的裹挟。在动画电影领域，2020年会成为接下来十年中最好的一年吗？我无法乐观地给出否定的回答。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 1&lt;&#x2F;strong&gt; 《利兹与青鸟（リズと青い鳥）》2018 山田尚子&lt;&#x2F;p&gt;
+&lt;p&gt;这是我近年来看过的电影感和作者风格最强的长篇动画电影。影片的整个核心故事都在学校教学楼这个封闭空间内完成。然而在这个受限的空间中，从与脚步声配合的配乐，到精心安排的背景摆件，到处充满着细节。山田尚子在九十分钟的时间内，尽情地使用视听语言，探索到了人物的内心最深之处。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 2&lt;&#x2F;strong&gt; 《爆裂鼓手（Whiplash）》2014 达米恩·查泽雷&lt;&#x2F;p&gt;
+&lt;p&gt;我听说真正的爵士乐迷并不看好这个扭曲了爵士乐精神的片子。但是对于我这样不通爵士乐的人来说，那种癫狂的戏剧张力，反高潮的情节转折，使这部电影充满了力气。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 3&lt;&#x2F;strong&gt; 《心灵奇旅（Soul）》2020 彼特·道格特&lt;&#x2F;p&gt;
+&lt;p&gt;也许皮克斯已经不是曾经的那个皮克斯了，但是非凡的想象力与一流的动画工业的结合，至少现在还没有丢失。从生之彼岸的桥上面下坠的画面，久违地给人以极大的愉悦。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2020-nian-du-yuan-sheng-yin-le&quot;&gt;2020 年度原声音乐&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《「girls,dance,staircase」（电影『利兹与青鸟』原声带）》2019 艺术家：牛尾憲輔&#x2F;松田彬人&lt;&#x2F;p&gt;
+&lt;p&gt;牛尾憲輔自然是延续一直以来的配乐风格，而这次松田彬人为配合电影专门按古典交响曲格式创作的《利兹与青鸟》
+完整的四乐章，实在难得。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;wang-nian-nian-du-dian-ying&quot;&gt;往年年度电影&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;movie-2019&#x2F;&quot;&gt;2019 个人年度电影&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>赏析：德沃夏克，第九交响曲“自新世界”，作品95号</title>
+          <pubDate>Sun, 06 Dec 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/dvorak-symphony-9/</link>
+          <guid>https://blog.pg999w.top/dvorak-symphony-9/</guid>
+          <description xml:base="https://blog.pg999w.top/dvorak-symphony-9/">&lt;p&gt;&lt;strong&gt;第二乐章 Largo “广板”，D♭大调&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>C++ 每三年才解决一点点问题</title>
+          <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/c-template-constraint/</link>
+          <guid>https://blog.pg999w.top/c-template-constraint/</guid>
+          <description xml:base="https://blog.pg999w.top/c-template-constraint/">&lt;p&gt;或：怎样优雅地给 C++ 模板添加约束？&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Docker 搭建 RoboMaster RoboRTS 框架构建环境</title>
+          <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/ros-docker/</link>
+          <guid>https://blog.pg999w.top/ros-docker/</guid>
+          <description xml:base="https://blog.pg999w.top/ros-docker/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;RoboMaster&#x2F;RoboRTS&quot;&gt;RoboRTS&lt;&#x2F;a&gt; 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 &lt;a href=&quot;https:&#x2F;&#x2F;www.ros.org&#x2F;&quot;&gt;ROS&lt;&#x2F;a&gt;，在非 Ubuntu&#x2F;CentOS 的 Linux 机器上面安装较为困难。于是我们采用基于 docker 的构建方案。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>用 Perl 进制转换</title>
+          <pubDate>Mon, 22 Jun 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/perl-hex/</link>
+          <guid>https://blog.pg999w.top/perl-hex/</guid>
+          <description xml:base="https://blog.pg999w.top/perl-hex/">&lt;p&gt;现在需要把一堆十进制数转换为二进制数，在 Vim 里可以用 &lt;code&gt;:&#x27;&amp;lt;,&#x27;&amp;gt;!command&lt;&#x2F;code&gt; 来做转换。但是我发现常见的行处理程序 &lt;code&gt;awk&lt;&#x2F;code&gt; 根本搞不定进制转换，所以还是用最强大的字符处理语言 Perl 来搞。命令如下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%032b\n&amp;quot;, $_)&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果输入是十六进制呢？加个 &lt;code&gt;hex&lt;&#x2F;code&gt; 函数就行：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%032b\n&amp;quot;, hex($_))&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;如果一行有多个字段，只想转换第二个呢？这就要用到 &lt;code&gt;-a&lt;&#x2F;code&gt; 参数，此时 &lt;code&gt;$_&lt;&#x2F;code&gt; 变为数组 &lt;code&gt;@F&lt;&#x2F;code&gt;：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;sh&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-sh &quot;&gt;&lt;code class=&quot;language-sh&quot; data-lang=&quot;sh&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;perl -ane &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;printf(&amp;quot;%s\t%032b\n&amp;quot;, @F[0], hex(@F[1]))&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;最后注意在 Vim 中 &lt;code&gt;%&lt;&#x2F;code&gt; 符号需要转义。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>从 C++ 的错误处理说起</title>
+          <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/c-p0709/</link>
+          <guid>https://blog.pg999w.top/c-p0709/</guid>
+          <description xml:base="https://blog.pg999w.top/c-p0709/">&lt;p&gt;&lt;strong&gt;错误处理&lt;&#x2F;strong&gt;是一个非常重要的软件工程问题。对软件中出现的非致命错误的不当处理，是几乎所有的灾难性系统故障的诱因。 编程语言往往需要提供一些用于错误处理的语言设施，这些设施反过来会影响项目中错误处理的方式。不同的语言错误处理方式不同。例如 Java 采用基于 try-throw-catch 语法的异常机制，而 Go 语言则选择手动检测函数返回的 &lt;code&gt;error&lt;&#x2F;code&gt; 对象。一个令人惊讶的事实是，C++ 到现在还没有一个被广泛接受的错误处理方式。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>2019 个人年度电影</title>
+          <pubDate>Sat, 28 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/movie-2019/</link>
+          <guid>https://blog.pg999w.top/movie-2019/</guid>
+          <description xml:base="https://blog.pg999w.top/movie-2019/">&lt;h2 id=&quot;gui-ze&quot;&gt;规则&lt;&#x2F;h2&gt;
+&lt;p&gt;虽然是一个自娱自乐的东西，但是不以规矩，不成方圆，入选的电影满足如下条件：&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;是本年新观看的电影。&lt;&#x2F;li&gt;
+&lt;li&gt;包含观看的电影资源，不限于院线片。&lt;&#x2F;li&gt;
+&lt;li&gt;仅以个人喜好程度排序，不单独考虑艺术价值，社会影响等因素。&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;2019-nian-du-dian-ying&quot;&gt;2019 年度电影&lt;&#x2F;h2&gt;
+&lt;p&gt;遗憾的是，我选出的三部电影全部是非院线片，这意味着这些电影基本都是在较差的观影条件下观看的。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 1&lt;&#x2F;strong&gt; 《寄生虫（기생충）》2019 奉俊昊&lt;&#x2F;p&gt;
+&lt;p&gt;最为传统的剧作结构，达到了最好的效果。这部电影给了我长久以来都没有过的，被情节抓住的体验。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 2&lt;&#x2F;strong&gt; 《宣告黎明的露之歌（夜明け告げるルーのうた）》2017 汤浅政明&lt;&#x2F;p&gt;
+&lt;p&gt;没有什么特殊的理由，这部电影和我产生了某种共振。汤浅政明创造的这个异国故事，包含着一种奇妙的气氛，确实触动了我心中某个部分。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;rank 3&lt;&#x2F;strong&gt; 《登月第一人（First Man）》2018 达米恩·查泽雷&lt;&#x2F;p&gt;
+&lt;p&gt;许多电影里都有太空飞船，但是这一部真实地展现了那种天空深处的危机四伏。舱内狭隘的视角，剧烈的抖动，死亡与濒死体验，都无比真实。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;2019-nian-du-yuan-sheng-yin-le&quot;&gt;2019 年度原声音乐&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;《冰雪奇缘2（Frozen II）》2019 艺术家：Robert Lopez&#x2F;Kristen Anderson Lopez&lt;&#x2F;p&gt;
+&lt;p&gt;电影没得洗，确实是迪士尼缺乏诚意的制作，但是原声音乐仍然是高水准。比起第一部，这部更加戏剧化的音乐我反而更喜欢。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>Inverse clip in TikZ</title>
+          <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/tikz/</link>
+          <guid>https://blog.pg999w.top/tikz/</guid>
+          <description xml:base="https://blog.pg999w.top/tikz/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;PGF&#x2F;TikZ&quot;&gt;Ti&lt;em&gt;k&lt;&#x2F;em&gt;Z&lt;&#x2F;a&gt; 虽然强大，但是也过于复杂。下面尝试绘制下面的图形。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;tikz&#x2F;.&#x2F;tikz.svg&quot; alt=&quot;ellipse&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;首先绘制一个直立的图形，再全局旋转。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{tikzpicture}[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;=20,even odd rule]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;绘制实线部分，一个椭圆，一个半椭圆和两条直线。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\coordinate&lt;&#x2F;span&gt;&lt;span&gt; (move) at (0,3);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (move) ellipse [x radius=1,y radius=0.4];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (-1,0) -- +(move);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (1,0) -- +(move);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (1,0) arc (0:-180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt;[dashed] (1,0) arc (0:180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;接下来绘制带有遮挡关系的直线。这里需要使用一个辅助的样式 &lt;code&gt;invclip&lt;&#x2F;code&gt;，用于产生「剪除」的效果。&lt;code&gt;clip&lt;&#x2F;code&gt; 相当于一个蒙板，加上 &lt;code&gt;invclip&lt;&#x2F;code&gt; 后变为一个反向蒙板。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\tikzset&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  invclip&#x2F;.style={
+&lt;&#x2F;span&gt;&lt;span&gt;    insert path={ (-3,-2) -- (-3,5) -- (3,5) -- (3,-2) -- (-3,-2) }
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;\foreach&lt;&#x2F;code&gt; 只运行两次。针对同一条直线，第一次 &lt;code&gt;\sty&lt;&#x2F;code&gt; 为 &lt;code&gt;dashed&lt;&#x2F;code&gt;，&lt;code&gt;\inv&lt;&#x2F;code&gt; 为 &lt;code&gt;{}&lt;&#x2F;code&gt;；第二次 &lt;code&gt;\sty&lt;&#x2F;code&gt; 为 &lt;code&gt;{}&lt;&#x2F;code&gt;，&lt;code&gt;\inv&lt;&#x2F;code&gt; 为 &lt;code&gt;invclip&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\foreach \sty&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\inv&lt;&#x2F;span&gt;&lt;span&gt; in {dashed&#x2F;{},{}&#x2F;invclip} {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{scope}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\path&lt;&#x2F;span&gt;&lt;span&gt;[clip,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\inv&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;      (-1,0)
+&lt;&#x2F;span&gt;&lt;span&gt;      -- +(move) -- ($&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;move&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;(1&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0)&lt;&#x2F;span&gt;&lt;span&gt;$)
+&lt;&#x2F;span&gt;&lt;span&gt;      -- (1,0) arc (0:-180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\sty&lt;&#x2F;span&gt;&lt;span&gt;,thick] (0,4) -- (0,-1);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{scope}
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{tikzpicture}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+      </item>
+      <item>
+          <title>constexpr string</title>
+          <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/constexpr-string/</link>
+          <guid>https://blog.pg999w.top/constexpr-string/</guid>
+          <description xml:base="https://blog.pg999w.top/constexpr-string/">&lt;p&gt;按照 &lt;a href=&quot;https:&#x2F;&#x2F;akrzemi1.wordpress.com&#x2F;2017&#x2F;06&#x2F;28&#x2F;compile-time-string-concatenation&#x2F;&quot;&gt;Andrzej&#x27;s C++ blog&lt;&#x2F;a&gt; 里这篇文章的思路，我实现了一个编译期的字符串拼接：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;sstring &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; inner[N];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;public&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const char &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;s)[N]) : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;inner&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{} {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; s[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; sstring&amp;lt;M&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lhs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; sstring&amp;lt;N &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rhs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;) : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;inner&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{} {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; lhs[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i &lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; rhs[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr char &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;operator[]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; inner[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char &lt;&#x2F;span&gt;&lt;span&gt;(&amp;amp;s)[N]) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;N&amp;gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; M, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;M&amp;gt; &amp;amp;lhs, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;N&amp;gt; &amp;amp;rhs) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;N + M&amp;gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; M, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr auto &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;operator+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;M&amp;gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lhs&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;N&amp;gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rhs&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(lhs, rhs);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring s {&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;123&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring q {&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;456&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring r {s + q};
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;constexpr string&lt;&#x2F;code&gt; 有什么用？这至少在初始化全局静态变量时有用。&lt;code&gt;constexpr&lt;&#x2F;code&gt; 静态变量不会存在烦人的初始化顺序问题。&lt;&#x2F;li&gt;
+&lt;li&gt;因为用到了 deducing guide，所以至少需要在 C++ 17 下编译。&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;std::string&lt;&#x2F;code&gt; 将在 C++ 20 支持 &lt;code&gt;constexpr&lt;&#x2F;code&gt;，不过编译器全部普及这个特性可能还要等好几年。
+&lt;ul&gt;
+&lt;li&gt;C++ 现在有一种「&lt;code&gt;constexpr&lt;&#x2F;code&gt; Everything」的倾向。这是为了更好的实现元编程。这是好事。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;constexpr&lt;&#x2F;code&gt; 构造函数要求初始化每个每个子对象和非静态数据成员必须被初始化。奇怪的是，clang 可以通过未初始化的代码。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+      <item>
+          <title>\(\LaTeX\) 公式</title>
+          <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/latex-math-formula/</link>
+          <guid>https://blog.pg999w.top/latex-math-formula/</guid>
+          <description xml:base="https://blog.pg999w.top/latex-math-formula/">&lt;p&gt;\(\LaTeX\) 是一款非常优秀的文档准备系统，它强大的数学排版功能举世闻名。由于 &lt;a href=&quot;https:&#x2F;&#x2F;www.mathjax.org&#x2F;&quot;&gt;Mathjax&lt;&#x2F;a&gt; 的广泛采用，\(\LaTeX\) 数学公式也成为了 Web 技术上数学公式排版的事实标准。但 \(\LaTeX\) 的学习曲线陡峭，基本的命令难以轻松应对实际写作中遇到的复杂公式。本文选取并实现了 &lt;a href=&quot;https:&#x2F;&#x2F;ctan.org&#x2F;pkg&#x2F;texbook&quot;&gt;\(\textrm{The \TeX{}book}\)&lt;&#x2F;a&gt; 第 18 章末尾提供的 20 个 Chanllenge。以期为想要深入学习 \(\LaTeX\) 公式排版的读者提供参考。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>你应该使用 Neovim</title>
+          <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/you-should-use-neovim/</link>
+          <guid>https://blog.pg999w.top/you-should-use-neovim/</guid>
+          <description xml:base="https://blog.pg999w.top/you-should-use-neovim/">&lt;p&gt;本文旨在说服读者将自己的文本编辑工具从 Vim 转到 Neovim。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Rust 的指针别名优化</title>
+          <pubDate>Sat, 19 Jan 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/csarpp-opt/</link>
+          <guid>https://blog.pg999w.top/csarpp-opt/</guid>
+          <description xml:base="https://blog.pg999w.top/csarpp-opt/">&lt;p&gt;本文研究了基于 Rust 具有的所有权语义的一些优化。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>使用基于 Github issue 的留言系统</title>
+          <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/gh-issue-comments/</link>
+          <guid>https://blog.pg999w.top/gh-issue-comments/</guid>
+          <description xml:base="https://blog.pg999w.top/gh-issue-comments/">&lt;p&gt;流行的博客留言系统包括 Disqus 等，但是我并没有 Disqus 帐号，也并不想注册一个。考虑到该博客的受众应该都有 Github 帐号，采用基于 Github issue 的系统应该是合适的，而且还可以享受邮件提醒等功能。我选择了 &lt;a href=&quot;https:&#x2F;&#x2F;utteranc.es&quot;&gt;utteranc.es&lt;&#x2F;a&gt; 的方案。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>为什么编程语言总是应该使用UTF-8而不是UTF-16</title>
+          <pubDate>Sat, 15 Dec 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/why-utf16-sacks/</link>
+          <guid>https://blog.pg999w.top/why-utf16-sacks/</guid>
+          <description xml:base="https://blog.pg999w.top/why-utf16-sacks/">&lt;p&gt;前段时间研究字符编码的时候，看到了一个&lt;a href=&quot;https:&#x2F;&#x2F;www.zhihu.com&#x2F;question&#x2F;35214880&quot;&gt;知乎问题&lt;&#x2F;a&gt;，里面的回答基本上都概念不清，事实上，Unicode “字符”、
+“字符串”、“编码”等词语涉及到非常复杂的概念。而目前介绍这个主题的中文文章似乎较为稀少，于是有了这篇文章。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>ACM 错误集</title>
+          <pubDate>Thu, 20 Sep 2018 20:26:00 +0800</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/acm-error-set/</link>
+          <guid>https://blog.pg999w.top/acm-error-set/</guid>
+          <description xml:base="https://blog.pg999w.top/acm-error-set/">&lt;p&gt;以下是平时做题时造成不能一遍AC的原因。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>稻城游记</title>
+          <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/daocheng-journey/</link>
+          <guid>https://blog.pg999w.top/daocheng-journey/</guid>
+          <description xml:base="https://blog.pg999w.top/daocheng-journey/">&lt;figure style=&quot;margin:0&quot;&gt;
+&lt;img alt=&quot;Photo of Yading&quot; src=&quot;https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;12483662&#x2F;44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg&quot;&gt;
+&lt;figcaption&gt;摄于2018年8月10日&lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+</description>
+      </item>
+      <item>
+          <title>About Me</title>
+          <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/about/</link>
+          <guid>https://blog.pg999w.top/about/</guid>
+          <description xml:base="https://blog.pg999w.top/about/">&lt;p&gt;I&#x27;m a CS graduate student of &lt;a href=&quot;https:&#x2F;&#x2F;www.sjtu.edu.cn&#x2F;&quot;&gt;SJTU&lt;&#x2F;a&gt;. My undergraduate degree was completed at &lt;a href=&quot;http:&#x2F;&#x2F;www.nwpu.edu.cn&quot;&gt;NWPU&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>关于这个博客</title>
+          <pubDate>Wed, 18 Jul 2018 12:00:00 +0800</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/first-blog/</link>
+          <guid>https://blog.pg999w.top/first-blog/</guid>
+          <description xml:base="https://blog.pg999w.top/first-blog/">&lt;p&gt;除去第一个 &lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;hello&#x2F;&quot;&gt;Hello World&lt;&#x2F;a&gt; 页面，这是第一篇文章。&lt;!-- more --&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;我时常觉得应该写一点文章，但是由于时间不够，加上我的拖延症，直到高考完闲得慌的时候才搭建了这个静态博客。希望能写一些有用的文章，也能给互联网提供一些资料。
+&lt;del&gt;这个博客由 Gutenberg 驱动。&lt;&#x2F;del&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Gutenberg 已经被重命名为 &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&quot;&gt;Zola&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;li-shi&quot;&gt;历史&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;s&gt;充分说明我的拖延症&lt;&#x2F;s&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;2018年7月至11月。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;s&gt;因为懒得弄 Github Pages，&lt;&#x2F;s&gt;该博客首先部署在了 Netlify 上。只在 &lt;a href=&quot;https:&#x2F;&#x2F;fervent-rosalind-6ed4d2.netlify.com&#x2F;&quot;&gt;https:&#x2F;&#x2F;fervent-rosalind-6ed4d2.netlify.com&#x2F;&lt;&#x2F;a&gt; 上可见。应该不会被搜索引擎索引到。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2018年12月&lt;&#x2F;p&gt;
+&lt;p&gt;因为写了第一篇具有一定质量的文章并打算发布，终于实现了 Travis CI 自动化 Github Pages 部署。&lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;gh-issue-comments&#x2F;&quot;&gt;留言&lt;&#x2F;a&gt;、RSS 等基础功能也基本到位。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2018年12月18日&lt;&#x2F;p&gt;
+&lt;p&gt;这个博客可以在谷歌上搜索到了。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2019年12月&lt;&#x2F;p&gt;
+&lt;p&gt;增加了一个 Nanoblog 栏目，用于存放仓促完成，或对别人不那么有价值的文章。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2021年12月&lt;&#x2F;p&gt;
+&lt;p&gt;隐藏 Nanoblog。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2024年10月&lt;&#x2F;p&gt;
+&lt;p&gt;谷歌不再索引这个博客。尚未找到原因。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</description>
+      </item>
+      <item>
+          <title>Hello World</title>
+          <pubDate>Wed, 18 Jul 2018 10:00:00 +0800</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/hello/</link>
+          <guid>https://blog.pg999w.top/hello/</guid>
+          <description xml:base="https://blog.pg999w.top/hello/">&lt;p&gt;Hello world!&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

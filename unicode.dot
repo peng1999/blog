@@ -1,0 +1,16 @@
+digraph {
+    rankdir=BT
+    compound=true
+    codeunit [label="Code Unit"]
+    abschar [label="Abstract Character"]
+    codepo [label="Code Point"]
+    grcl [label="Grapheme cluster"]
+
+    codeunit -> codepo [label="one or many"]
+    subgraph cluster_encchar {
+        rankdir=LR
+        style=filled
+        codepo -> abschar [dir=both,label="Encoded Character"]
+    }
+    codepo -> grcl [label="one or many",ltail=cluster_encchar]
+}

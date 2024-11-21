@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+      <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6VKH78QR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-EC6VKH78QR');
+        </script>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+      <meta name='description' content='\(\LaTeX\) 是一款非常优秀的文档准备系统，它强大的数学排版功能举世闻名。由于 Mathjax 的广泛采用，\(\LaTeX\) 数学公式也成为了 Web 技术上数学公式排版的事实标准。但 \(\LaTeX\) 的学习曲线陡峭，基本的命令难以轻松应对实际写作中遇到的复杂公式。本文选取并实现了 \(\textrm{The \TeX{}book}\) 第 18 章末尾提供的 20 个 Chanllenge。以期为想要深入学习 \(\LaTeX\) 公式排版的读者提供参考。
+'>
+      
+    
+
+      <title>pg999w&#x27;s blog - \(\LaTeX\) 公式</title>
+
+      
+          
+          <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.pg999w.top/rss.xml">
+          
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+    <link rel="stylesheet" href="https://blog.pg999w.top/site.css">
+<link rel="stylesheet" href="https://blog.pg999w.top/custom.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+
+
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;" class="logo">pg999w’s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                            RSS
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;">pg999w’s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                                    RSS
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;latex-math-formula&#x2F;">\(\LaTeX\) 公式</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2019-08-07</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>\(\LaTeX\) 是一款非常优秀的文档准备系统，它强大的数学排版功能举世闻名。由于 <a href="https://www.mathjax.org/">Mathjax</a> 的广泛采用，\(\LaTeX\) 数学公式也成为了 Web 技术上数学公式排版的事实标准。但 \(\LaTeX\) 的学习曲线陡峭，基本的命令难以轻松应对实际写作中遇到的复杂公式。本文选取并实现了 <a href="https://ctan.org/pkg/texbook">\(\textrm{The \TeX{}book}\)</a> 第 18 章末尾提供的 20 个 Chanllenge。以期为想要深入学习 \(\LaTeX\) 公式排版的读者提供参考。</p>
+<span id="continue-reading"></span>
+<p>Knuth 在 The \(\TeX\)book 的附录中给出了全部习题的答案，但全部使用的是原始的 \(\TeX\) 命令，而本文则采用了适用于 \(\LaTeX\) 的命令。为提供最大兼容性，本文原则上只使用 \(\LaTeX\) 与 AMS 宏集提供的命令排版数学公式。一个例外是 <code>commath</code> 宏包提供的 <code>\dif</code> 命令。但即使不引用这个宏包，也可以轻易地通过定义 <code>\DeclareMathOperator{\dif}{d\!}</code> 来使用这个命令。</p>
+<p>这篇文章是用 \(\LaTeX\) 写的，目前只有 <a href="../latex-math/TeXbookFormula.pdf">PDF 版本</a>。你也可以前往 <a href="https://github.com/peng1999/blog/blob/master/static/latex-math/TeXbookFormula.pdf">Github</a> 在线阅读</p>
+<p>文档的源码<a href="../latex-math/TeXbookFormula.tex">在这里</a>。</p>
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://blog.pg999w.top/tags/latex/">#latex</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;constexpr-string&#x2F;">‹ constexpr string</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;you-should-use-neovim&#x2F;">你应该使用 Neovim ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<hr />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
+<br />
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">\(\LaTeX\) 公式</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;latex-math-formula&#x2F;" property="cc:attributionName" rel="cc:attributionURL">Peng Guanwen</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。
+
+<br />
+
+<span id="busuanzi_container_site_uv" style="display:none">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<span id="busuanzi_container_page_pv" style="display:none">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://blog.pg999w.top/even.js" ></script>
+      
+    </body>
+
+</html>

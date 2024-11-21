@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - latex</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/latex/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 22 Dec 2019 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>Inverse clip in TikZ</title>
+          <pubDate>Sun, 22 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/tikz/</link>
+          <guid>https://blog.pg999w.top/tikz/</guid>
+          <description xml:base="https://blog.pg999w.top/tikz/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;PGF&#x2F;TikZ&quot;&gt;Ti&lt;em&gt;k&lt;&#x2F;em&gt;Z&lt;&#x2F;a&gt; 虽然强大，但是也过于复杂。下面尝试绘制下面的图形。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;tikz&#x2F;.&#x2F;tikz.svg&quot; alt=&quot;ellipse&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;首先绘制一个直立的图形，再全局旋转。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{tikzpicture}[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rotate&lt;&#x2F;span&gt;&lt;span&gt;=20,even odd rule]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;绘制实线部分，一个椭圆，一个半椭圆和两条直线。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\coordinate&lt;&#x2F;span&gt;&lt;span&gt; (move) at (0,3);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (move) ellipse [x radius=1,y radius=0.4];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (-1,0) -- +(move);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (1,0) -- +(move);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt; (1,0) arc (0:-180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt;[dashed] (1,0) arc (0:180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;接下来绘制带有遮挡关系的直线。这里需要使用一个辅助的样式 &lt;code&gt;invclip&lt;&#x2F;code&gt;，用于产生「剪除」的效果。&lt;code&gt;clip&lt;&#x2F;code&gt; 相当于一个蒙板，加上 &lt;code&gt;invclip&lt;&#x2F;code&gt; 后变为一个反向蒙板。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\tikzset&lt;&#x2F;span&gt;&lt;span&gt;{
+&lt;&#x2F;span&gt;&lt;span&gt;  invclip&#x2F;.style={
+&lt;&#x2F;span&gt;&lt;span&gt;    insert path={ (-3,-2) -- (-3,5) -- (3,5) -- (3,-2) -- (-3,-2) }
+&lt;&#x2F;span&gt;&lt;span&gt;  }
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;\foreach&lt;&#x2F;code&gt; 只运行两次。针对同一条直线，第一次 &lt;code&gt;\sty&lt;&#x2F;code&gt; 为 &lt;code&gt;dashed&lt;&#x2F;code&gt;，&lt;code&gt;\inv&lt;&#x2F;code&gt; 为 &lt;code&gt;{}&lt;&#x2F;code&gt;；第二次 &lt;code&gt;\sty&lt;&#x2F;code&gt; 为 &lt;code&gt;{}&lt;&#x2F;code&gt;，&lt;code&gt;\inv&lt;&#x2F;code&gt; 为 &lt;code&gt;invclip&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;tex&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-tex &quot;&gt;&lt;code class=&quot;language-tex&quot; data-lang=&quot;tex&quot;&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\foreach \sty&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\inv&lt;&#x2F;span&gt;&lt;span&gt; in {dashed&#x2F;{},{}&#x2F;invclip} {
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\begin&lt;&#x2F;span&gt;&lt;span&gt;{scope}
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\path&lt;&#x2F;span&gt;&lt;span&gt;[clip,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\inv&lt;&#x2F;span&gt;&lt;span&gt;]
+&lt;&#x2F;span&gt;&lt;span&gt;      (-1,0)
+&lt;&#x2F;span&gt;&lt;span&gt;      -- +(move) -- ($&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;move&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;)&lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;(1&lt;&#x2F;span&gt;&lt;span&gt;,&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0)&lt;&#x2F;span&gt;&lt;span&gt;$)
+&lt;&#x2F;span&gt;&lt;span&gt;      -- (1,0) arc (0:-180:1 and 0.4);
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\draw&lt;&#x2F;span&gt;&lt;span&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;\sty&lt;&#x2F;span&gt;&lt;span&gt;,thick] (0,4) -- (0,-1);
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{scope}
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;\end&lt;&#x2F;span&gt;&lt;span&gt;{tikzpicture}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+</description>
+      </item>
+      <item>
+          <title>\(\LaTeX\) 公式</title>
+          <pubDate>Wed, 07 Aug 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/latex-math-formula/</link>
+          <guid>https://blog.pg999w.top/latex-math-formula/</guid>
+          <description xml:base="https://blog.pg999w.top/latex-math-formula/">&lt;p&gt;\(\LaTeX\) 是一款非常优秀的文档准备系统，它强大的数学排版功能举世闻名。由于 &lt;a href=&quot;https:&#x2F;&#x2F;www.mathjax.org&#x2F;&quot;&gt;Mathjax&lt;&#x2F;a&gt; 的广泛采用，\(\LaTeX\) 数学公式也成为了 Web 技术上数学公式排版的事实标准。但 \(\LaTeX\) 的学习曲线陡峭，基本的命令难以轻松应对实际写作中遇到的复杂公式。本文选取并实现了 &lt;a href=&quot;https:&#x2F;&#x2F;ctan.org&#x2F;pkg&#x2F;texbook&quot;&gt;\(\textrm{The \TeX{}book}\)&lt;&#x2F;a&gt; 第 18 章末尾提供的 20 个 Chanllenge。以期为想要深入学习 \(\LaTeX\) 公式排版的读者提供参考。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

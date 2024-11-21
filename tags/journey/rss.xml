@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - journey</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/journey/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 01 Oct 2021 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>保研经历总结</title>
+          <pubDate>Fri, 01 Oct 2021 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/baoyan/</link>
+          <guid>https://blog.pg999w.top/baoyan/</guid>
+          <description xml:base="https://blog.pg999w.top/baoyan/">&lt;p&gt;2020年保研算是告一段落了。因为基地里面要组织给学弟学妹的分享活动，借此机会正好来写一篇总结。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>稻城游记</title>
+          <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/daocheng-journey/</link>
+          <guid>https://blog.pg999w.top/daocheng-journey/</guid>
+          <description xml:base="https://blog.pg999w.top/daocheng-journey/">&lt;figure style=&quot;margin:0&quot;&gt;
+&lt;img alt=&quot;Photo of Yading&quot; src=&quot;https:&#x2F;&#x2F;user-images.githubusercontent.com&#x2F;12483662&#x2F;44626880-0d964180-a957-11e8-8cc7-fae7b81e1f59.jpg&quot;&gt;
+&lt;figcaption&gt;摄于2018年8月10日&lt;&#x2F;figcaption&gt;
+&lt;&#x2F;figure&gt;
+</description>
+      </item>
+    </channel>
+</rss>

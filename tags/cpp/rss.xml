@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - cpp</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/cpp/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Tue, 14 Nov 2023 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>Rust 和 C++ 的对象生命管理</title>
+          <pubDate>Tue, 14 Nov 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/rust-cpp-object-management/</link>
+          <guid>https://blog.pg999w.top/rust-cpp-object-management/</guid>
+          <description xml:base="https://blog.pg999w.top/rust-cpp-object-management/">&lt;p&gt;Rust 和 C++ 的对象都是值语义，都采用了 RAII 惯用法。所以他们需要处理类似的对象生命周期问题：需要专门的代码来处理对象的初始化，复制和析构。下面进行一个比较，我们能够看到两种语言之间内在的对称性。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>C++ 每三年才解决一点点问题</title>
+          <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/c-template-constraint/</link>
+          <guid>https://blog.pg999w.top/c-template-constraint/</guid>
+          <description xml:base="https://blog.pg999w.top/c-template-constraint/">&lt;p&gt;或：怎样优雅地给 C++ 模板添加约束？&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>Docker 搭建 RoboMaster RoboRTS 框架构建环境</title>
+          <pubDate>Sun, 02 Aug 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/ros-docker/</link>
+          <guid>https://blog.pg999w.top/ros-docker/</guid>
+          <description xml:base="https://blog.pg999w.top/ros-docker/">&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;RoboMaster&#x2F;RoboRTS&quot;&gt;RoboRTS&lt;&#x2F;a&gt; 框架用于大疆的 RoboMaster ICRA 人工智能挑战赛。其构建环境基于 &lt;a href=&quot;https:&#x2F;&#x2F;www.ros.org&#x2F;&quot;&gt;ROS&lt;&#x2F;a&gt;，在非 Ubuntu&#x2F;CentOS 的 Linux 机器上面安装较为困难。于是我们采用基于 docker 的构建方案。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>从 C++ 的错误处理说起</title>
+          <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/c-p0709/</link>
+          <guid>https://blog.pg999w.top/c-p0709/</guid>
+          <description xml:base="https://blog.pg999w.top/c-p0709/">&lt;p&gt;&lt;strong&gt;错误处理&lt;&#x2F;strong&gt;是一个非常重要的软件工程问题。对软件中出现的非致命错误的不当处理，是几乎所有的灾难性系统故障的诱因。 编程语言往往需要提供一些用于错误处理的语言设施，这些设施反过来会影响项目中错误处理的方式。不同的语言错误处理方式不同。例如 Java 采用基于 try-throw-catch 语法的异常机制，而 Go 语言则选择手动检测函数返回的 &lt;code&gt;error&lt;&#x2F;code&gt; 对象。一个令人惊讶的事实是，C++ 到现在还没有一个被广泛接受的错误处理方式。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>constexpr string</title>
+          <pubDate>Thu, 19 Dec 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/constexpr-string/</link>
+          <guid>https://blog.pg999w.top/constexpr-string/</guid>
+          <description xml:base="https://blog.pg999w.top/constexpr-string/">&lt;p&gt;按照 &lt;a href=&quot;https:&#x2F;&#x2F;akrzemi1.wordpress.com&#x2F;2017&#x2F;06&#x2F;28&#x2F;compile-time-string-concatenation&#x2F;&quot;&gt;Andrzej&#x27;s C++ blog&lt;&#x2F;a&gt; 里这篇文章的思路，我实现了一个编译期的字符串拼接：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;c++&quot; style=&quot;background-color:#eff1f5;color:#4f5b66;&quot; class=&quot;language-c++ &quot;&gt;&lt;code class=&quot;language-c++&quot; data-lang=&quot;c++&quot;&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;sstring &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; inner[N];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;default&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;public&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;:
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const char &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;s)[N]) : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;inner&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{} {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; s[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; sstring&amp;lt;M&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lhs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; sstring&amp;lt;N &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M&amp;gt; &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rhs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;) : &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;inner&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{} {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; lhs[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N &lt;&#x2F;span&gt;&lt;span&gt;-&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; M; &lt;&#x2F;span&gt;&lt;span&gt;++&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;i) {
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;            inner[i &lt;&#x2F;span&gt;&lt;span&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; N] &lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; rhs[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr char &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;operator[]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const &lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;{
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt; inner[i];
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;    }
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#343d46;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;char &lt;&#x2F;span&gt;&lt;span&gt;(&amp;amp;s)[N]) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;N&amp;gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; M, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;M&amp;gt; &amp;amp;lhs, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;N&amp;gt; &amp;amp;rhs) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;N + M&amp;gt;;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;template&lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; M, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span&gt; N&amp;gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr auto &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;operator+&lt;&#x2F;span&gt;&lt;span&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;M&amp;gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;lhs&lt;&#x2F;span&gt;&lt;span&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;const&lt;&#x2F;span&gt;&lt;span&gt; sstring&amp;lt;N&amp;gt; &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rhs&lt;&#x2F;span&gt;&lt;span&gt;) {
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sstring&lt;&#x2F;span&gt;&lt;span&gt;(lhs, rhs);
+&lt;&#x2F;span&gt;&lt;span&gt;}
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring s {&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;123&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring q {&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;456&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;};
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;constexpr&lt;&#x2F;span&gt;&lt;span&gt; sstring r {s + q};
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;constexpr string&lt;&#x2F;code&gt; 有什么用？这至少在初始化全局静态变量时有用。&lt;code&gt;constexpr&lt;&#x2F;code&gt; 静态变量不会存在烦人的初始化顺序问题。&lt;&#x2F;li&gt;
+&lt;li&gt;因为用到了 deducing guide，所以至少需要在 C++ 17 下编译。&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;std::string&lt;&#x2F;code&gt; 将在 C++ 20 支持 &lt;code&gt;constexpr&lt;&#x2F;code&gt;，不过编译器全部普及这个特性可能还要等好几年。
+&lt;ul&gt;
+&lt;li&gt;C++ 现在有一种「&lt;code&gt;constexpr&lt;&#x2F;code&gt; Everything」的倾向。这是为了更好的实现元编程。这是好事。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;constexpr&lt;&#x2F;code&gt; 构造函数要求初始化每个每个子对象和非静态数据成员必须被初始化。奇怪的是，clang 可以通过未初始化的代码。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - linux</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/linux/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Fri, 19 Apr 2019 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>你应该使用 Neovim</title>
+          <pubDate>Fri, 19 Apr 2019 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/you-should-use-neovim/</link>
+          <guid>https://blog.pg999w.top/you-should-use-neovim/</guid>
+          <description xml:base="https://blog.pg999w.top/you-should-use-neovim/">&lt;p&gt;本文旨在说服读者将自己的文本编辑工具从 Vim 转到 Neovim。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

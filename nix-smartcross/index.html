@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      
+      <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-EC6VKH78QR"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-EC6VKH78QR');
+        </script>
+      
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+      <meta name='description' content='SmartCross 项目的介绍见这里。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 Nix 表达式来管理该项目的环境。
+'>
+      
+    
+
+      <title>pg999w&#x27;s blog - 用 Nix 管理交叉编译 Rust 项目的环境</title>
+
+      
+          
+          <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.pg999w.top/rss.xml">
+          
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+    <link rel="stylesheet" href="https://blog.pg999w.top/site.css">
+<link rel="stylesheet" href="https://blog.pg999w.top/custom.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif+SC:wght@400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+
+
+
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;" class="logo">pg999w’s blog</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                            RSS
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                            Tags
+                        </a>
+                    </li>
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                            About
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;">pg999w’s blog</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;rss.xml">
+                                    RSS
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;tags">
+                                    Tags
+                                </a>
+                            </li>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;&#x2F;about">
+                                    About
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/nix-smartcross/#cmake-xiang-mu-de-da-bao" class="toc-link">CMake 项目的打包</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://blog.pg999w.top/nix-smartcross/#gou-jian-yi-lai" class="toc-link">构建依赖</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/nix-smartcross/#rust-xiang-mu-da-bao" class="toc-link">Rust 项目打包</a>
+                    
+                    <ul>
+                        
+                        <li>
+                            <a href="https://blog.pg999w.top/nix-smartcross/#shi-yong-buildrustpackage" class="toc-link">使用 buildRustPackage</a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://blog.pg999w.top/nix-smartcross/#shi-yong-crane-wei-rust-xiang-mu-da-bao" class="toc-link">使用 Crane 为 Rust 项目打包</a>
+                        </li>
+                        
+                    </ul>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://blog.pg999w.top/nix-smartcross/#bian-xie-flake-biao-da-shi" class="toc-link">编写 Flake 表达式</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;nix-smartcross&#x2F;">用 Nix 管理交叉编译 Rust 项目的环境</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2022-12-11</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p>SmartCross 项目的介绍见<a href="https://blog.t123yh.xyz:2/index.php/archives/1077">这里</a>。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 <a href="https://nixos.org/">Nix</a> 表达式来管理该项目的环境。</p>
+<span id="continue-reading"></span>
+<p>Nix 是很多东西的总称，包括</p>
+<ul>
+<li>一个函数式编程语言 Nix 表达式</li>
+<li>一个用 Nix Expression 进行打包的包管理系统 Nix，同时支持各种 Linux 和 MacOS，并允许多个版本的相同软件在系统中并存</li>
+<li>一个世界上<a href="https://repology.org/repositories/statistics/nonunique">最大</a>的软件包仓库 Nixpkgs</li>
+<li>一个操作系统 NixOS，使用 Nix 表达式来定义整个系统的软件和配置，并实现了原子更新和方便地系统回滚</li>
+</ul>
+<p>同时 Nixpkgs 提供了一流的交叉编译支持。下面将编写描述构建环境的 Nix 表达式。</p>
+<h2 id="cmake-xiang-mu-de-da-bao">CMake 项目的打包</h2>
+<p>首先该项目依赖的 <a href="https://github.com/sbabic/libubootenv">libubootenv</a> 没有在 nixpkgs 中打包，所以我们需要手动打包。只需要写一个 <code>libubootenv.nix</code> 文件，放在 <code>nix/</code> 目录下即可。Nixpkgs 的“genericBuild”机制可以处理 CMake 项目，基本只需要按模版简单填空即可。</p>
+<pre data-lang="nix" style="background-color:#eff1f5;color:#4f5b66;" class="language-nix "><code class="language-nix" data-lang="nix"><span style="color:#8fa1b3;">{ </span><span>lib, stdenv, fetchFromGitHub, cmake, zlib </span><span style="color:#8fa1b3;">}</span><span>:
+</span><span>
+</span><span style="color:#bf616a;">stdenv</span><span>.</span><span style="color:#bf616a;">mkDerivation </span><span style="color:#b48ead;">rec </span><span>{
+</span><span>  </span><span style="color:#d08770;">pname </span><span>= &quot;</span><span style="color:#a3be8c;">libubootenv</span><span>&quot;;
+</span><span>  </span><span style="color:#d08770;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.3.3</span><span>&quot;;
+</span><span>
+</span><span>  </span><span style="color:#d08770;">src </span><span>= </span><span style="color:#bf616a;">fetchFromGitHub </span><span>{
+</span><span>    </span><span style="color:#d08770;">owner </span><span>= &quot;</span><span style="color:#a3be8c;">sbabic</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">repo </span><span>= &quot;</span><span style="color:#a3be8c;">libubootenv</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">rev </span><span>= &quot;</span><span style="color:#a3be8c;">v</span><span style="font-style:italic;color:#ab7967;">${</span><span style="font-style:italic;color:#bf616a;">version</span><span style="font-style:italic;color:#ab7967;">}</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">sha256 </span><span>= &quot;</span><span style="color:#a3be8c;">sha256-BQZp+/UbaEkXFioYPAoEA74kVN2sXfBY1+0vitKdfho=</span><span>&quot;;
+</span><span>  };
+</span><span>
+</span><span>  </span><span style="color:#d08770;">nativeBuildInputs </span><span>= [ </span><span style="color:#bf616a;">cmake </span><span>];
+</span><span>
+</span><span>  </span><span style="color:#d08770;">buildInputs </span><span>= [ </span><span style="color:#bf616a;">zlib </span><span>];
+</span><span>
+</span><span>  </span><span style="color:#a7adba;"># 这个选项是为了修复 pkg-config 给出路径错误的问题
+</span><span>  </span><span style="color:#d08770;">cmakeFlags </span><span>= [
+</span><span>    &quot;</span><span style="color:#a3be8c;">-DCMAKE_INSTALL_INCLUDEDIR=include</span><span>&quot;
+</span><span>  ];
+</span><span>
+</span><span>  </span><span style="color:#d08770;">meta </span><span>= </span><span style="color:#b48ead;">with </span><span style="color:#bf616a;">lib</span><span>; {
+</span><span>    </span><span style="color:#d08770;">description </span><span>= &quot;</span><span style="color:#a3be8c;">Generic library and tools to access and modify U-Boot environment from User Space</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">homepage    </span><span>= &quot;</span><span style="color:#a3be8c;">https://github.com/sbabic/libubootenv</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">license </span><span>= </span><span style="color:#bf616a;">licenses</span><span>.</span><span style="color:#bf616a;">mit</span><span>;
+</span><span>  };
+</span><span>}
+</span></code></pre>
+<h3 id="gou-jian-yi-lai">构建依赖</h3>
+<p>用 Nix 表达式写好一个包的定义之后，Nixpkgs 可以自动处理到不同平台的交叉编译。注意到如果包 <code>A</code> 依赖了包 <code>B</code>，<code>buildPlatform</code> 是编译时的平台，<code>hostPlatform</code> 是编译产物实际运行的平台，那么一般有以下两种情况</p>
+<ol>
+<li><code>hostPlatform B == hostPlatform A</code></li>
+<li><code>hostPlatform B == buildPlatform A</code></li>
+</ol>
+<p>如果符合情况 1，例如 <code>B</code> 是 <code>A</code> 的运行时依赖，则需要将 <code>B</code> 放到 <code>A.buildInputs</code> 中去，如果符合情况 2，例如 <code>B</code> 是构建工具，则需要放到 <code>A.nativeBuildInputs</code> 中去。</p>
+<h2 id="rust-xiang-mu-da-bao">Rust 项目打包</h2>
+<h3 id="shi-yong-buildrustpackage">使用 <code>buildRustPackage</code></h3>
+<p>Rust 项目可以用 <code>nixpkgs.rustPlatform.buildRustPackage</code> 打包。同样是简单按模版填空即可。下面是 <code>nix/smartcross_controller.nix</code> 文件。</p>
+<pre data-lang="nix" style="background-color:#eff1f5;color:#4f5b66;" class="language-nix "><code class="language-nix" data-lang="nix"><span style="color:#8fa1b3;">{ </span><span>rustToolchain,
+</span><span>  makeRustPlatform, pkgconfig, protobuf, libubootenv, avahi, openssl, dbus, alsa-lib, zlib
+</span><span style="color:#8fa1b3;">}</span><span>:
+</span><span>
+</span><span style="color:#b48ead;">let </span><span style="color:#d08770;">rustPlatform </span><span>= </span><span style="color:#bf616a;">makeRustPlatform </span><span>{
+</span><span>  </span><span style="color:#d08770;">rustc </span><span>= </span><span style="color:#bf616a;">rustToolchain</span><span>;
+</span><span>  </span><span style="color:#d08770;">cargo </span><span>= </span><span style="color:#bf616a;">rustToolchain</span><span>;
+</span><span>};
+</span><span>
+</span><span style="color:#b48ead;">in </span><span style="color:#bf616a;">rustPlatform</span><span>.</span><span style="color:#bf616a;">buildRustPackage </span><span style="color:#b48ead;">rec </span><span>{
+</span><span>  </span><span style="color:#d08770;">pname </span><span>= &quot;</span><span style="color:#a3be8c;">smartcross_controller</span><span>&quot;;
+</span><span>  </span><span style="color:#d08770;">version </span><span>= &quot;</span><span style="color:#a3be8c;">0.1.0</span><span>&quot;;
+</span><span>
+</span><span>  </span><span style="color:#d08770;">src </span><span>= </span><span style="color:#a3be8c;">../.</span><span>;
+</span><span>  </span><span style="color:#d08770;">cargoLock </span><span>= {
+</span><span>    </span><span style="color:#d08770;">lockFile </span><span>= </span><span style="color:#a3be8c;">../Cargo.lock</span><span>;
+</span><span>    </span><span style="color:#d08770;">outputHashes </span><span>= {
+</span><span>      &quot;</span><span style="color:#a3be8c;">camilladsp-1.0.1</span><span>&quot; = &quot;</span><span style="color:#a3be8c;">sha256-XpQE+XVgQyVRg/NHCkPnpB/SGLChsUZucvL8x/ieKzI=</span><span>&quot;;
+</span><span>      &quot;</span><span style="color:#a3be8c;">libubootenv-rs-0.1.0</span><span>&quot; = &quot;</span><span style="color:#a3be8c;">sha256-FRPnFjrlVS09W7MTjY0X8kwU04HZMcYxQAiVvEvKc08=</span><span>&quot;;
+</span><span>      &quot;</span><span style="color:#a3be8c;">rfkill-rs-0.1.0</span><span>&quot; = &quot;</span><span style="color:#a3be8c;">sha256-uN58uzTeaQWLAEizNFZSldq2wkmlo8Si5xbQDyfYmYI=</span><span>&quot;;
+</span><span>    };
+</span><span>  };
+</span><span>
+</span><span>  </span><span style="color:#d08770;">nativeBuildInputs </span><span>= [
+</span><span>    </span><span style="color:#bf616a;">pkgconfig
+</span><span>    </span><span style="color:#bf616a;">protobuf
+</span><span>    </span><span style="color:#bf616a;">rustPlatform</span><span>.</span><span style="color:#bf616a;">bindgenHook
+</span><span>  ];
+</span><span>
+</span><span>  </span><span style="color:#d08770;">buildInputs </span><span>= [
+</span><span>    </span><span style="color:#bf616a;">libubootenv
+</span><span>    </span><span style="color:#bf616a;">avahi
+</span><span>    </span><span style="color:#bf616a;">openssl
+</span><span>    </span><span style="color:#bf616a;">dbus</span><span>.</span><span style="color:#bf616a;">dev
+</span><span>    </span><span style="color:#bf616a;">alsa-lib</span><span>.</span><span style="color:#bf616a;">dev
+</span><span>    </span><span style="color:#bf616a;">zlib
+</span><span>  ];
+</span><span>}
+</span></code></pre>
+<p>基于可复现性的考虑，Rust 项目的 git 依赖需要全部填写哈希值。一些第三方库使用更高级的方法解决了这个问题。下面使用 <a href="https://github.com/ipetkov/crane">Crane</a> 来进行同样的打包。</p>
+<h3 id="shi-yong-crane-wei-rust-xiang-mu-da-bao">使用 Crane 为 Rust 项目打包</h3>
+<p>Crane 比起 <code>buildRustPackage</code> 的另一个优点是提供了更细粒度的缓存。使用 <code>buildRustPackage</code>，每次更改项目代码后，重新编译都是一个 clean build，而使用 Crane，只要不更改依赖项，则不用重新编译 cargo 依赖。</p>
+<p>遗憾的是，Crane 对交叉编译的支持没有 <code>buildRustPackage</code> 那么好。为了成功编译，我们需要给构建环境手动添加两个环境变量。其中一个环境变量名字中带有架构名称，使得一旦目标架构变化，我们就需要手动更改这个表达式。所幸我们不会频繁更换构建目标平台。</p>
+<pre data-lang="nix" style="background-color:#eff1f5;color:#4f5b66;" class="language-nix "><code class="language-nix" data-lang="nix"><span style="color:#8fa1b3;">{ </span><span>src, craneLib, target,
+</span><span>  stdenv, pkgconfig, protobuf, rustPlatform, libubootenv, avahi, openssl, dbus, alsa-lib, zlib
+</span><span style="color:#8fa1b3;">}</span><span>:
+</span><span>
+</span><span style="color:#bf616a;">craneLib</span><span>.</span><span style="color:#bf616a;">buildPackage </span><span>{
+</span><span>  </span><span style="color:#b48ead;">inherit </span><span style="color:#d08770;">src</span><span>;
+</span><span>
+</span><span>  </span><span style="color:#d08770;">nativeBuildInputs </span><span>= [
+</span><span>    </span><span style="color:#a7adba;"># ... 和前面相同
+</span><span>  ];
+</span><span>
+</span><span>  </span><span style="color:#d08770;">buildInputs </span><span>= [
+</span><span>    </span><span style="color:#a7adba;"># ... 和前面相同
+</span><span>  ];
+</span><span>
+</span><span>  </span><span style="color:#a7adba;"># 任何不含有特殊意义的字段都将会直接变成构建环境中的环境变量
+</span><span>  </span><span style="color:#d08770;">CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER </span><span>= &quot;</span><span style="font-style:italic;color:#ab7967;">${</span><span style="font-style:italic;color:#bf616a;">stdenv</span><span style="font-style:italic;color:#4f5b66;">.</span><span style="font-style:italic;color:#bf616a;">cc</span><span style="font-style:italic;color:#4f5b66;">.</span><span style="font-style:italic;color:#bf616a;">targetPrefix</span><span style="font-style:italic;color:#ab7967;">}</span><span style="color:#a3be8c;">cc</span><span>&quot;;
+</span><span>  </span><span style="color:#d08770;">CARGO_BUILD_TARGET </span><span>= </span><span style="color:#bf616a;">target</span><span>;
+</span><span>}
+</span></code></pre>
+<p>这里我们没有指定 <code>src</code>，而是将其作为参数，稍后我们会具体给 <code>src</code> 赋值。</p>
+<h2 id="bian-xie-flake-biao-da-shi">编写 Flake 表达式</h2>
+<p>接下来我们在项目根目录编写 <code>flake.nix</code>。这里面包含了关于构建环境所有的配置信息。</p>
+<pre data-lang="nix" style="background-color:#eff1f5;color:#4f5b66;" class="language-nix "><code class="language-nix" data-lang="nix"><span>{
+</span><span>  </span><span style="color:#a7adba;"># inputs 声明所有用到的库
+</span><span>  </span><span style="color:#d08770;">inputs </span><span>= {
+</span><span>    </span><span style="color:#d08770;">rust-overlay </span><span>= {
+</span><span>      </span><span style="color:#d08770;">url </span><span>= &quot;</span><span style="color:#a3be8c;">github:oxalica/rust-overlay</span><span>&quot;;
+</span><span>      </span><span style="color:#d08770;">inputs </span><span>= {
+</span><span>        </span><span style="color:#d08770;">nixpkgs</span><span>.</span><span style="color:#d08770;">follows </span><span>= &quot;</span><span style="color:#a3be8c;">nixpkgs</span><span>&quot;;
+</span><span>        </span><span style="color:#d08770;">flake-utils</span><span>.</span><span style="color:#d08770;">follows </span><span>= &quot;</span><span style="color:#a3be8c;">flake-utils</span><span>&quot;;
+</span><span>      };
+</span><span>    };
+</span><span>    </span><span style="color:#d08770;">crane </span><span>= {
+</span><span>      </span><span style="color:#d08770;">url </span><span>= &quot;</span><span style="color:#a3be8c;">github:ipetkov/crane</span><span>&quot;;
+</span><span>      </span><span style="color:#d08770;">inputs </span><span>= {
+</span><span>        </span><span style="color:#d08770;">nixpkgs</span><span>.</span><span style="color:#d08770;">follows </span><span>= &quot;</span><span style="color:#a3be8c;">nixpkgs</span><span>&quot;;
+</span><span>        </span><span style="color:#d08770;">flake-utils</span><span>.</span><span style="color:#d08770;">follows </span><span>= &quot;</span><span style="color:#a3be8c;">flake-utils</span><span>&quot;;
+</span><span>      };
+</span><span>    };
+</span><span>    </span><span style="color:#d08770;">flake-utils</span><span>.</span><span style="color:#d08770;">url </span><span>= &quot;</span><span style="color:#a3be8c;">github:numtide/flake-utils</span><span>&quot;;
+</span><span>    </span><span style="color:#d08770;">nixpkgs</span><span>.</span><span style="color:#d08770;">url </span><span>= &quot;</span><span style="color:#a3be8c;">nixpkgs/nixos-unstable</span><span>&quot;;
+</span><span>  };
+</span><span>
+</span><span>  </span><span style="color:#d08770;">outputs </span><span>= </span><span style="color:#8fa1b3;">{ </span><span>self, rust-overlay, crane, flake-utils, nixpkgs </span><span style="color:#8fa1b3;">}</span><span>:
+</span><span>    </span><span style="color:#bf616a;">flake-utils</span><span>.</span><span style="color:#bf616a;">lib</span><span>.</span><span style="color:#bf616a;">eachDefaultSystem </span><span>(system:
+</span><span>      </span><span style="color:#b48ead;">let </span><span style="color:#a7adba;"># 下面将声明一系列变量（值）
+</span><span>        </span><span style="color:#d08770;">target </span><span>= &quot;</span><span style="color:#a3be8c;">aarch64-unknown-linux-gnu</span><span>&quot;; </span><span style="color:#a7adba;"># 目标平台
+</span><span>        </span><span style="color:#a7adba;"># pkgs 将成为 nixpkgs 特定目标平台的实例
+</span><span>        </span><span style="color:#d08770;">pkgs </span><span>= </span><span style="color:#96b5b4;">import </span><span style="color:#bf616a;">nixpkgs </span><span>{
+</span><span>          </span><span style="color:#b48ead;">inherit </span><span style="color:#d08770;">system</span><span>;
+</span><span>          </span><span style="color:#d08770;">overlays </span><span>= [ (</span><span style="color:#96b5b4;">import </span><span style="color:#bf616a;">rust-overlay</span><span>) ]; </span><span style="color:#a7adba;"># 为了自由选择 Rust 版本和组件，我们使用了 rust-overlay
+</span><span>          </span><span style="color:#d08770;">crossSystem </span><span>= {
+</span><span>            </span><span style="color:#d08770;">config </span><span>= </span><span style="color:#bf616a;">target</span><span>;
+</span><span>          };
+</span><span>        };
+</span><span>        </span><span style="color:#a7adba;"># 选择最新的 stable Rust，带有 minimal 配置的组件
+</span><span>        </span><span style="color:#d08770;">rustToolchain </span><span>= </span><span style="color:#bf616a;">pkgs</span><span>.</span><span style="color:#bf616a;">pkgsBuildHost</span><span>.</span><span style="color:#bf616a;">rust-bin</span><span>.</span><span style="color:#bf616a;">stable</span><span>.</span><span style="color:#bf616a;">latest</span><span>.</span><span style="color:#bf616a;">minimal</span><span>.</span><span style="color:#bf616a;">override </span><span>{
+</span><span>          </span><span style="color:#d08770;">targets </span><span>= [ </span><span style="color:#bf616a;">target </span><span>]; </span><span style="color:#a7adba;"># 同时能够交叉编译到目标平台
+</span><span>        };
+</span><span>        </span><span style="color:#a7adba;"># 将我们选择的 Rust 工具链应用到 Crane
+</span><span>        </span><span style="color:#d08770;">craneLib </span><span>= (</span><span style="color:#bf616a;">crane</span><span>.</span><span style="color:#bf616a;">mkLib pkgs</span><span>).</span><span style="color:#bf616a;">overrideToolchain rustToolchain</span><span>;
+</span><span>        </span><span style="color:#a7adba;"># 辅助函数
+</span><span>        </span><span style="color:#d08770;">protoFilter </span><span>= path: _type: </span><span style="color:#d08770;">builtins</span><span>.</span><span style="color:#bf616a;">match </span><span>&quot;</span><span style="color:#a3be8c;">.*proto$</span><span>&quot; </span><span style="color:#bf616a;">path </span><span>!= </span><span style="color:#d08770;">null</span><span>;
+</span><span>        </span><span style="color:#a7adba;"># 一个函数，用来判断 path 是否是需要带入构建环境的文件
+</span><span>        </span><span style="color:#d08770;">protoOrCargo </span><span>= path: type:
+</span><span>          (</span><span style="color:#bf616a;">protoFilter path type</span><span>) || (</span><span style="color:#bf616a;">craneLib</span><span>.</span><span style="color:#bf616a;">filterCargoSources path type</span><span>);
+</span><span>      </span><span style="color:#b48ead;">in </span><span>{
+</span><span>        </span><span style="color:#a7adba;"># 这个 flake 可以生成的包
+</span><span>        </span><span style="color:#d08770;">packages </span><span>= </span><span style="color:#b48ead;">rec </span><span>{
+</span><span>          </span><span style="color:#d08770;">default </span><span>= </span><span style="color:#bf616a;">smartcross_controller</span><span>;
+</span><span>
+</span><span>          </span><span style="color:#a7adba;"># 构建 libubootenv
+</span><span>          </span><span style="color:#d08770;">libubootenv </span><span>= </span><span style="color:#bf616a;">pkgs</span><span>.</span><span style="color:#bf616a;">callPackage </span><span style="color:#a3be8c;">./nix/libubootenv.nix </span><span>{}; </span><span style="color:#a7adba;"># 没有参数需要传递
+</span><span>
+</span><span>          </span><span style="color:#a7adba;"># 构建 smartcross_controller
+</span><span>          </span><span style="color:#d08770;">smartcross_controller </span><span>= </span><span style="color:#bf616a;">pkgs</span><span>.</span><span style="color:#bf616a;">callPackage </span><span style="color:#a3be8c;">./nix/smartcross_controller.nix </span><span>{
+</span><span>            </span><span style="color:#a7adba;"># src 参数。构建 Rust 项目所需要的文件。无关的文件如 README 将不会被带入编译环境，也就不会因为修改而引发重新构建
+</span><span>            </span><span style="color:#d08770;">src </span><span>= </span><span style="color:#bf616a;">pkgs</span><span>.</span><span style="color:#bf616a;">lib</span><span>.</span><span style="color:#bf616a;">cleanSourceWith </span><span>{
+</span><span>              </span><span style="color:#d08770;">src </span><span>= </span><span style="color:#a3be8c;">./.</span><span>;
+</span><span>              </span><span style="color:#d08770;">filter </span><span>= </span><span style="color:#bf616a;">protoOrCargo</span><span>;
+</span><span>            };
+</span><span>
+</span><span>            </span><span style="color:#a7adba;"># 语法糖，用于传递同名的参数
+</span><span>            </span><span style="color:#b48ead;">inherit </span><span style="color:#d08770;">craneLib target libubootenv</span><span>;
+</span><span>          };
+</span><span>
+</span><span>          </span><span style="color:#a7adba;"># 并不真正产生二进制产物，只是用于提供构建环境
+</span><span>          </span><span style="color:#d08770;">env </span><span>= </span><span style="color:#bf616a;">pkgs</span><span>.</span><span style="color:#bf616a;">callPackage </span><span>(
+</span><span>            </span><span style="color:#8fa1b3;">{ </span><span>mkShell, llvm, clang </span><span style="color:#8fa1b3;">}</span><span>:
+</span><span>            </span><span style="color:#b48ead;">with </span><span style="color:#bf616a;">smartcross_controller</span><span>;
+</span><span>            </span><span style="color:#bf616a;">mkShell </span><span>{
+</span><span>              </span><span style="color:#d08770;">nativeBuildInputs </span><span>= </span><span style="color:#bf616a;">nativeBuildInputs </span><span>++ [ </span><span style="color:#bf616a;">llvm clang </span><span>];
+</span><span>              </span><span style="color:#b48ead;">inherit </span><span style="color:#d08770;">buildInputs CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER</span><span>;
+</span><span>            }
+</span><span>          ) {};
+</span><span>        };
+</span><span>      });
+</span><span>}
+</span></code></pre>
+<p>接下来运行 <code>nix build '.#'</code> 即可开始 <code>smartcross_controller</code> 的构建。构建完成后，将留下 <code>result</code> 目录。</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>$ ls -ld result
+</span><span>lrwxrwxrwx 1 pgw pgw 97 Dec 11 17:17 result -&gt; /nix/store/7zsmhixg5kf03ni0q0cc8i75c47kw8vr-smartcross_controller-aarch64-unknown-linux-gnu-0.1.0/
+</span><span>$ ls result/bin/
+</span><span>smartcross_controller*  updater*
+</span><span>$ file result/bin/smartcross_controller
+</span><span>result/bin/smartcross_controller: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /nix/store/0kbwlxnaxl0jly5szmgxqljrj3dxzyw8-glibc-aarch64-unknown-linux-gnu-2.35-163/lib/ld-linux-aarch64.so.1, for GNU/Linux 2.6.32, not stripped
+</span></code></pre>
+<p>使用 <code>nix build '.#libubootenv'</code> 可以单独构建 libubootenv，使用 <code>nix develop '.#env'</code> 可以进入一个 shell，这里面有全部定义好的构建环境。</p>
+<pre style="background-color:#eff1f5;color:#4f5b66;"><code><span>$ nix develop &#39;.#env&#39;
+</span><span>[user@host SmartCrossCtrl]$ rustc --version
+</span><span>rustc 1.65.0 (897e37553 2022-11-02)
+</span><span>[user@host SmartCrossCtrl]$ cargo build
+</span><span>...(build success)
+</span></code></pre>
+<!-- --- -->
+<!-- # Footnote -->
+
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+                <div class="post-tags">
+                    
+                        <a href="https://blog.pg999w.top/tags/rust/">#rust</a>
+                    
+                        <a href="https://blog.pg999w.top/tags/nix/">#nix</a>
+                    
+                </div>
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;wiki-exemption&#x2F;">‹ 在中国大陆境内编辑维基百科</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;too-many-channels&#x2F;">Too many channels in Rust but only one in Go ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<hr />
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+    <img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
+</a>
+<br />
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">用 Nix 管理交叉编译 Rust 项目的环境</span> 由 <a xmlns:cc="http://creativecommons.org/ns#" href="https:&#x2F;&#x2F;blog.pg999w.top&#x2F;nix-smartcross&#x2F;" property="cc:attributionName" rel="cc:attributionURL">Peng Guanwen</a> 采用 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a>进行许可。
+
+<br />
+
+<span id="busuanzi_container_site_uv" style="display:none">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+<span id="busuanzi_container_page_pv" style="display:none">
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</span>
+
+
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://blog.pg999w.top/even.js" ></script>
+      
+    </body>
+
+</html>

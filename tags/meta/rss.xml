@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - meta</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/meta/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Thu, 20 Dec 2018 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>使用基于 Github issue 的留言系统</title>
+          <pubDate>Thu, 20 Dec 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/gh-issue-comments/</link>
+          <guid>https://blog.pg999w.top/gh-issue-comments/</guid>
+          <description xml:base="https://blog.pg999w.top/gh-issue-comments/">&lt;p&gt;流行的博客留言系统包括 Disqus 等，但是我并没有 Disqus 帐号，也并不想注册一个。考虑到该博客的受众应该都有 Github 帐号，采用基于 Github issue 的系统应该是合适的，而且还可以享受邮件提醒等功能。我选择了 &lt;a href=&quot;https:&#x2F;&#x2F;utteranc.es&quot;&gt;utteranc.es&lt;&#x2F;a&gt; 的方案。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>About Me</title>
+          <pubDate>Sun, 29 Jul 2018 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/about/</link>
+          <guid>https://blog.pg999w.top/about/</guid>
+          <description xml:base="https://blog.pg999w.top/about/">&lt;p&gt;I&#x27;m a CS graduate student of &lt;a href=&quot;https:&#x2F;&#x2F;www.sjtu.edu.cn&#x2F;&quot;&gt;SJTU&lt;&#x2F;a&gt;. My undergraduate degree was completed at &lt;a href=&quot;http:&#x2F;&#x2F;www.nwpu.edu.cn&quot;&gt;NWPU&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>关于这个博客</title>
+          <pubDate>Wed, 18 Jul 2018 12:00:00 +0800</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/first-blog/</link>
+          <guid>https://blog.pg999w.top/first-blog/</guid>
+          <description xml:base="https://blog.pg999w.top/first-blog/">&lt;p&gt;除去第一个 &lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;hello&#x2F;&quot;&gt;Hello World&lt;&#x2F;a&gt; 页面，这是第一篇文章。&lt;!-- more --&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;我时常觉得应该写一点文章，但是由于时间不够，加上我的拖延症，直到高考完闲得慌的时候才搭建了这个静态博客。希望能写一些有用的文章，也能给互联网提供一些资料。
+&lt;del&gt;这个博客由 Gutenberg 驱动。&lt;&#x2F;del&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Gutenberg 已经被重命名为 &lt;a href=&quot;https:&#x2F;&#x2F;www.getzola.org&quot;&gt;Zola&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;li-shi&quot;&gt;历史&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;s&gt;充分说明我的拖延症&lt;&#x2F;s&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;2018年7月至11月。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;s&gt;因为懒得弄 Github Pages，&lt;&#x2F;s&gt;该博客首先部署在了 Netlify 上。只在 &lt;a href=&quot;https:&#x2F;&#x2F;fervent-rosalind-6ed4d2.netlify.com&#x2F;&quot;&gt;https:&#x2F;&#x2F;fervent-rosalind-6ed4d2.netlify.com&#x2F;&lt;&#x2F;a&gt; 上可见。应该不会被搜索引擎索引到。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2018年12月&lt;&#x2F;p&gt;
+&lt;p&gt;因为写了第一篇具有一定质量的文章并打算发布，终于实现了 Travis CI 自动化 Github Pages 部署。&lt;a href=&quot;https:&#x2F;&#x2F;blog.pg999w.top&#x2F;gh-issue-comments&#x2F;&quot;&gt;留言&lt;&#x2F;a&gt;、RSS 等基础功能也基本到位。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2018年12月18日&lt;&#x2F;p&gt;
+&lt;p&gt;这个博客可以在谷歌上搜索到了。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2019年12月&lt;&#x2F;p&gt;
+&lt;p&gt;增加了一个 Nanoblog 栏目，用于存放仓促完成，或对别人不那么有价值的文章。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2021年12月&lt;&#x2F;p&gt;
+&lt;p&gt;隐藏 Nanoblog。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2024年10月&lt;&#x2F;p&gt;
+&lt;p&gt;谷歌不再索引这个博客。尚未找到原因。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</description>
+      </item>
+      <item>
+          <title>Hello World</title>
+          <pubDate>Wed, 18 Jul 2018 10:00:00 +0800</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/hello/</link>
+          <guid>https://blog.pg999w.top/hello/</guid>
+          <description xml:base="https://blog.pg999w.top/hello/">&lt;p&gt;Hello world!&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

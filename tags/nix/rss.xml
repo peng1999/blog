@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - nix</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/nix/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Sun, 11 Dec 2022 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>用 Nix 管理交叉编译 Rust 项目的环境</title>
+          <pubDate>Sun, 11 Dec 2022 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/nix-smartcross/</link>
+          <guid>https://blog.pg999w.top/nix-smartcross/</guid>
+          <description xml:base="https://blog.pg999w.top/nix-smartcross/">&lt;p&gt;SmartCross 项目的介绍见&lt;a href=&quot;https:&#x2F;&#x2F;blog.t123yh.xyz:2&#x2F;index.php&#x2F;archives&#x2F;1077&quot;&gt;这里&lt;&#x2F;a&gt;。其中的控制器组件用 Rust 写成，需要编译到 aarch64 平台。我尝试写了一个 &lt;a href=&quot;https:&#x2F;&#x2F;nixos.org&#x2F;&quot;&gt;Nix&lt;&#x2F;a&gt; 表达式来管理该项目的环境。&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+      <title>pg999w&#x27;s blog - typography</title>
+      <link>https://blog.pg999w.top/</link>
+      <description>My life, experience and knowledge</description>
+      <generator>Zola</generator>
+      <language>en</language>
+      <atom:link href="https://blog.pg999w.top/tags/typography/rss.xml" rel="self" type="application/rss+xml"/>
+      <lastBuildDate>Wed, 24 Jan 2024 00:00:00 +0000</lastBuildDate>
+      <!-- for follow.is verification -->
+      <follow_challenge>
+        <feedId>74749384348414976</feedId>
+        <userId>74745960279982080</userId>
+      </follow_challenge>
+      <item>
+          <title>在 Typst 中使用 Latin Modern 家族</title>
+          <pubDate>Wed, 24 Jan 2024 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/typst-latin-modern/</link>
+          <guid>https://blog.pg999w.top/typst-latin-modern/</guid>
+          <description xml:base="https://blog.pg999w.top/typst-latin-modern/">&lt;p&gt;高德纳在开发 TeX 时，也设计了一套字体叫 Computer Modern，作为 TeX 的默认字体。然而当时字体是采用 METAFONT 制作的，和当今的字体标准 OpenType 并不兼容。Latin Modern 通过技术手段将 Computer Modern 转换到了 OpenType 格式，并且做了扩充和微调。所以我们在 Typst 中也可以调用 Latin Modern 字体。&lt;&#x2F;p&gt;
+</description>
+      </item>
+      <item>
+          <title>为 Typst 添加中文排版支持</title>
+          <pubDate>Sat, 22 Jul 2023 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://blog.pg999w.top/typst-clreq/</link>
+          <guid>https://blog.pg999w.top/typst-clreq/</guid>
+          <description xml:base="https://blog.pg999w.top/typst-clreq/">&lt;p&gt;Typst 是一个 2023 年初开源的一个排版软件。类似于 LaTeX，它通过纯文本编写源代码，然后通过编译器将源代码转换为排版好的 PDF 文件。虽然目前 Typst 的生态还不如 LaTeX，但是比起 LaTeX，它有一些明显的优势：&lt;&#x2F;p&gt;
+</description>
+      </item>
+    </channel>
+</rss>
