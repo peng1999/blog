@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /tags/
-Allow: /
-
-Sitemap: https://blog.pg999w.top/sitemap.xml
