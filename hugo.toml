@@ -1,7 +1,7 @@
 baseURL = "https://blog.pg999w.top/"
 languageCode = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
-title = "Even - A super concise theme for Hugo"
+title = "pg999w's blog"
 preserveTaxonomyNames = true
 enableRobotsTXT = true
 enableEmoji = true
@@ -10,12 +10,13 @@ enableGitInfo = false # use git commit log to generate lastmod record # 可根�
 
 hasCJKLanguage = true     # has chinese/japanese/korean ? # 自动检测是否包含 中文\日文\韩文
 disqusShortname = ""      # disqus_shortname
-googleAnalytics = "G-EC6VKH78QR"      # UA-XXXXXXXX-X
 copyright = ""            # default: author.name ↓        # 默认为下面配置的author.name ↓
 
 summarylength = 20
 
-# Syntax highlighting by Chroma. NOTE: Don't enable `highlightInClient` and `chroma` at the same time!
+[services.googleAnalytics]
+  id = 'G-EC6VKH78QR'
+
 [markup.highlight]
   codefences = true
   guesssyntax = true
