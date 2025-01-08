@@ -5,7 +5,8 @@ date = 2018-07-29
 tags = ["meta"]
 +++
 
-I'm a CS graduate student of [SJTU](https://www.sjtu.edu.cn/). My undergraduate degree was completed at [NWPU](http://www.nwpu.edu.cn).
+<span class="en-text">I’m</span>
+a CS graduate student of [SJTU](https://www.sjtu.edu.cn/). My undergraduate degree was completed at [NWPU](http://www.nwpu.edu.cn).
 <!--more-->
 
 ## About this blog

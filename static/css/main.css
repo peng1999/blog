@@ -2,3 +2,8 @@
   display: block;
   margin: auto;
 }
+
+.en-text {
+  font-family: "Source Sans 3";
+  font-size: 112%;
+}
