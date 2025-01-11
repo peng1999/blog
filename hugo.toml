@@ -55,8 +55,13 @@ summarylength = 20
   identifier = "tags"
   url = "/tags/"
 [[menu.main]]
-  name = "About"
+  name = "RSS"
   weight = 40
+  identifier = "rss"
+  url = "/index.xml"
+[[menu.main]]
+  name = "About"
+  weight = 50
   identifier = "about"
   url = "/post/about"
 # [[menu.main]]
