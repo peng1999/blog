@@ -2,6 +2,7 @@
 title = "关于这个博客"
 template = "page.html"
 date = 2018-07-18T12:00:00+08:00
+lastmod = 2025-01-30
 tags = ["meta"]
 +++
 
@@ -9,8 +10,7 @@ tags = ["meta"]
 
 我时常觉得应该写一点文章，但是由于时间不够，加上我的拖延症，直到高考完闲得慌的时候才搭建了这个静态博客。希望能写一些有用的文章，也能给互联网提供一些资料。
 <del>这个博客由 Gutenberg 驱动。</del>
-
-Gutenberg 已经被重命名为 [Zola](https://www.getzola.org)。
+这个博客由 Hugo 驱动。
 
 ## 历史
 
