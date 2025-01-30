@@ -11,7 +11,7 @@ a CS graduate student of [SJTU](https://www.sjtu.edu.cn/). My undergraduate degr
 
 ## About this blog
 
-See [this post](@/first-blog.md).
+See [this post](../first-blog).
 
 ## More info about me
 
