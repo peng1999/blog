@@ -5,8 +5,15 @@ tags = ["linux", "nas"]
 +++
 
 <style>
-.small img {
-  max-width: 60% !important;
+@media screen and (min-width:800px) {
+    .small img {
+      max-width: 60% !important;
+    }
+}
+@media screen and (max-width:800px) {
+    .small img {
+      max-width: 330px !important;
+    }
 }
 </style>
 
