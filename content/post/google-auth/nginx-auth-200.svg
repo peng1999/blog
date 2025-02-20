@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1410 968" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-444.745,-895.533)">
+        <g transform="matrix(0.893207,0,0,0.710259,47.2467,850.199)">
+            <rect x="447.533" y="639.263" width="353.186" height="236.287" style="fill:rgb(235,235,235);stroke:black;stroke-width:5.16px;"/>
+        </g>
+        <g transform="matrix(0.893207,0,0,0.710259,47.0888,1238.68)">
+            <rect x="447.533" y="639.263" width="353.186" height="236.287" style="fill:rgb(235,235,235);stroke:black;stroke-width:5.16px;"/>
+        </g>
+        <g transform="matrix(1.51109,0,0,0.710259,642.579,850.199)">
+            <rect x="447.533" y="639.263" width="353.186" height="236.287" style="fill:rgb(235,235,235);stroke:black;stroke-width:3.53px;"/>
+        </g>
+        <g transform="matrix(1,0,0,1,3.04062,702.437)">
+            <g transform="matrix(66.6667,0,0,66.6667,675.746,701.383)">
+            </g>
+            <text x="523.079px" y="701.383px" style="font-family:'SourceSans3-Regular', 'Source Sans 3', sans-serif;font-size:66.667px;">nginx</text>
+        </g>
+        <g transform="matrix(1,0,0,1,13.4985,1099.26)">
+            <text x="523.079px" y="701.383px" style="font-family:'PingFangSC-Regular', 'PingFang SC', sans-serif;font-size:66.667px;">网站</text>
+        </g>
+        <g transform="matrix(1,0,0,1,874.944,702.437)">
+            <g transform="matrix(66.6667,0,0,66.6667,896.146,701.383)">
+            </g>
+            <text x="523.079px" y="701.383px" style="font-family:'SourceSans3-Regular', 'Source Sans 3', sans-serif;font-size:66.667px;">o<tspan x="558.279px " y="701.383px ">a</tspan>uth2-pr<tspan x="800.279px 835.279px " y="701.383px 701.383px ">ox</tspan>y</text>
+        </g>
+        <g transform="matrix(1.16471,0,0,1,-125.587,703.616)">
+            <g transform="matrix(0.858579,-0,-0,1,489.676,191.917)">
+                <path d="M355.243,541.903L317.709,523.22L355.176,504.403C345.817,513.795 345.851,532.545 355.243,541.903Z" style="fill:rgb(9,128,0);"/>
+                <path d="M874.097,522.22C874.097,522.22 463.395,522.958 347.709,523.166" style="fill:none;stroke:rgb(9,128,0);stroke-width:6.25px;stroke-linecap:butt;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,-6.16817e-05,-6.16817e-05,1.139,-292.843,255.476)">
+            <g transform="matrix(1,5.41542e-05,5.41542e-05,0.877963,737.622,561.986)">
+                <path d="M178.584,371.216L159.817,408.708L141.084,371.199C150.455,380.579 169.205,380.587 178.584,371.216Z"/>
+                <path d="M159.975,53.033C159.975,53.033 159.869,292.975 159.831,378.708" style="fill:none;stroke:black;stroke-width:6.25px;stroke-linecap:butt;"/>
+            </g>
+        </g>
+        <g transform="matrix(1,0.00013018,0.00013018,0.706636,-292.802,1041.92)">
+            <g transform="matrix(1,-0.000184225,-0.000184225,1.41515,737.574,-207.298)">
+                <path d="M178.802,759.702L160.035,797.194L141.302,759.685C150.673,769.064 169.423,769.073 178.802,759.702Z" style="fill:rgb(9,128,0);"/>
+                <path d="M160.133,576.533C160.133,576.533 160.075,706.856 160.048,767.194" style="fill:none;stroke:rgb(9,128,0);stroke-width:6.25px;stroke-linecap:butt;"/>
+            </g>
+        </g>
+        <g transform="matrix(1.16471,0,0,1,-125.587,643.416)">
+            <g transform="matrix(0.858579,-0,-0,1,489.676,252.117)">
+                <path d="M836.564,443.338L874.097,462.02L836.631,480.838C845.989,471.446 845.956,452.696 836.564,443.338Z"/>
+                <path d="M317.709,463.02C317.709,463.02 728.412,462.282 844.097,462.074" style="fill:none;stroke:black;stroke-width:6.25px;stroke-linecap:butt;"/>
+            </g>
+        </g>
+        <g transform="matrix(6.12323e-17,1,-1,6.12323e-17,874.103,560.214)">
+            <text x="452.106px" y="325.706px" style="font-family:'PingFangSC-Regular', 'PingFang SC', sans-serif;font-size:50px;">用户请求</text>
+        </g>
+        <g transform="matrix(1,0,0,1,447.692,997.21)">
+            <g transform="matrix(50,0,0,50,731.856,325.706)">
+            </g>
+            <text x="452.106px" y="325.706px" style="font-family:'SourceSans3-Regular', 'Source Sans 3', sans-serif;font-size:50px;">auth_r<tspan x="590.456px " y="325.706px ">e</tspan>ques<tspan x="714.956px " y="325.706px ">t</tspan></text>
+        </g>
+        <g transform="matrix(1,0,0,1,514.367,1145.76)">
+            <g transform="matrix(50,0,0,50,598.806,325.706)">
+            </g>
+            <text x="452.106px" y="325.706px" style="font-family:'SourceSans3-Regular', 'Source Sans 3', sans-serif;font-size:50px;">200 OK</text>
+        </g>
+    </g>
+</svg>

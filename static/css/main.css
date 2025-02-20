@@ -3,6 +3,12 @@
   margin: auto;
 }
 
+figcaption {
+  text-align: center;
+  font-family: "Noto Sans SC";
+}
+
+/* 标记英文文本 */
 .en-text {
   font-family: "Source Serif 4";
   font-size: 112%;
@@ -11,3 +17,4 @@
 strong .en-text {
   font-weight: 500;
 }
+
