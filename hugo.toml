@@ -1,5 +1,5 @@
 baseURL = "https://blog.pg999w.cn/"
-languageCode = "zh-cn"
+locale = "zh-cn"
 defaultContentLanguage = "zh-cn"                             # en / zh-cn / ... (This field determines which i18n file to use)
 title = "pg999w's blog"
 preserveTaxonomyNames = true
@@ -16,6 +16,9 @@ summarylength = 20
 
 [services.googleAnalytics]
   id = 'G-EC6VKH78QR'
+
+[security]
+  allowContent = ['! ^text/org$']
 
 [markup.highlight]
   codefences = true

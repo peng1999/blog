@@ -179,4 +179,3 @@ printf sihpHj35wr | sudo htpasswd -Bi /etc/nginx/.google_passwd user2@gmail.com
 oauth2-proxy 不仅支持 Google，还支持[许多其他](https://oauth2-proxy.github.io/oauth2-proxy/configuration/providers/)的 OAuth2 提供方。在实验室或者小团队搭建的服务器中，GitLab 提供的 OAuth2 SSO 登录也许是一个更好的选择。此时由于 GitLab 账户是面向团队内部创建的，所以 oauth2-proxy 可以同时承担认证和授权的工作，无需再配置一个用于授权的反向代理。
 
 [Authentik](https://goauthentik.io/) 是另一个更灵活和功能丰富的选择。它是专门的用户管理服务，可以进行 2FA，权限分组等设置。Authentik 自身就可以替代 oauth2-proxy，作为 nginx 的 `auth_request` 上游。
-

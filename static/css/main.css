@@ -18,3 +18,10 @@ strong .en-text {
   font-weight: 500;
 }
 
+.post .post-content .movie-heading {
+  margin-bottom: 0;
+}
+
+.post .post-content .movie-heading + p {
+  margin-top: 0;
+}
