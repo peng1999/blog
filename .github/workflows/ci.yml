@@ -3,6 +3,9 @@ name: CI
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -26,15 +29,40 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v3
       with:
-        hugo-version: latest
+        hugo-version: '0.168.0'
         extended: true
+
+    - name: Install Dart Sass
+      env:
+        DART_SASS_VERSION: '1.105.2'
+      run: |
+        curl --fail --location --retry 3 \
+          "https://github.com/sass/dart-sass/releases/download/${DART_SASS_VERSION}/dart-sass-${DART_SASS_VERSION}-linux-x64.tar.gz" \
+          --output "${RUNNER_TEMP}/dart-sass.tar.gz"
+        tar -xzf "${RUNNER_TEMP}/dart-sass.tar.gz" -C "${RUNNER_TEMP}"
+        echo "${RUNNER_TEMP}/dart-sass" >> "$GITHUB_PATH"
+
+    - name: Verify toolchain
+      run: |
+        hugo version
+        sass --version
+        hugo env
+
+    - name: Setup Node.js for theme regression tests
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: Check theme compatibility
+      run: |
+        node --test themes/even/tests/theme.test.cjs
+        sass --no-source-map --fatal-deprecation=1.105.2 themes/even/assets/sass/main.scss "${RUNNER_TEMP}/theme.css"
+        hugo --source themes/even/exampleSite --themesDir ../.. --destination "${RUNNER_TEMP}/even-example" --ignoreCache --minify --panicOnWarning --printPathWarnings
 
     - name: Setup Pages
       id: pages
+      if: github.event_name != 'pull_request'
       uses: actions/configure-pages@v5
-
-    - name: Build
-      run: hugo --minify
 
     - name: Build with Hugo
       env:
@@ -45,14 +73,17 @@ jobs:
         hugo \
           --gc \
           --minify \
-          --baseURL "${{ steps.pages.outputs.base_url }}/"
+          --panicOnWarning \
+          --baseURL "${{ steps.pages.outputs.base_url || 'https://blog.pg999w.cn' }}/"
 
     - name: Upload artifact
+      if: github.event_name != 'pull_request'
       uses: actions/upload-pages-artifact@v3
       with:
         path: ./public
 
   deploy:
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -62,4 +93,3 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
-
